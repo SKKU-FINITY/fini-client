@@ -7,5 +7,5 @@ import ErrorPage from "../../pages/error/error-page";
 export const router = createBrowserRouter([
   { path: PATH.HOME, element: <HomePage /> },
   { path: PATH.LOGIN, element: <LoginPage /> },
-  { path: PATH.NOT_FOUND, element: <ErrorPage /> },
+  { path: PATH.ERROR, element: <ErrorPage /> },
 ]);
