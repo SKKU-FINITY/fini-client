@@ -19,7 +19,7 @@ globalStyle("html, body", {
   fontSize: "62.5%",
   scrollbarWidth: "none",
   scrollBehavior: "smooth",
-  fontFamily: `'SUIT Variable', sans-serif`,
+  //fontFamily: `'SUIT Variable', sans-serif`,
   minHeight: "var(--height)",
 });
 
