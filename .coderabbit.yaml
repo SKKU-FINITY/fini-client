@@ -2,7 +2,7 @@ language: "ko-KR"
 early_access: false
 
 reviews:
-  profile: "balanced"
+  profile: "chill"
   review_depth: "medium"
   tone: "friendly"
   request_changes_workflow: true
