@@ -2,7 +2,7 @@
 
 <!--관련 이슈 언급 -->
 
-- close #
+- Closes #
 
 ## ✅ Checklist
 
