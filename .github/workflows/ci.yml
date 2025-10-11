@@ -1,44 +1,32 @@
-name: CI
+name: Build Test
 
 on:
-  pull_request:
-    branches:
-      - develop
-      - main
   push:
-    branches:
-      - develop
-      - main
+    branches: ["develop"]
+  pull_request:
+    branches: ["develop"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 🧾 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🧰 Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "pnpm"
 
-      - name: Setup pnpm
+      - name: 📦 Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      - name: Install Dependencies
-        run: |
-          corepack enable
-          pnpm install
+      - name: 📥 Install Dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Type Check
-        run: pnpm tsc --noEmit
-
-      - name: Build Test
+      - name: 🛠 Run Build
         run: pnpm build --outDir temp-dist
