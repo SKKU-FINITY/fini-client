@@ -1,14 +1,14 @@
 // @ts-nocheck
-import js from '@eslint/js'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
-import pluginReact from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import json from '@eslint/json'
-import prettier from 'eslint-config-prettier'
-import prettierPlugin from 'eslint-plugin-prettier'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import json from '@eslint/json';
+import prettier from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -27,6 +27,9 @@ export default defineConfig([
       prettier,
     ],
     plugins: {
+      react: pluginReact,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
       prettier: prettierPlugin,
     },
     rules: {
@@ -44,4 +47,4 @@ export default defineConfig([
     files: ['**/*.json'],
     ...json.configs.recommended,
   },
-])
+]);
