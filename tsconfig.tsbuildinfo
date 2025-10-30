@@ -1,0 +1,1 @@
+{"root":["./src/app/app.tsx","./src/app/main.tsx","./src/pages/error/error-page.tsx","./src/pages/home/home-page.tsx","./src/pages/login/login-page.tsx","./src/shared/api/axios.ts","./src/shared/router/index.tsx","./src/shared/router/path.ts","./src/styles/global.css.ts","./src/styles/reset.css.ts"],"errors":true,"version":"5.9.3"}
