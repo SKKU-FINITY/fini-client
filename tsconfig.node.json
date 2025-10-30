@@ -15,7 +15,7 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "esModuleInterop": true,
+
     "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
     "verbatimModuleSyntax": true,
