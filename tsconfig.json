@@ -5,6 +5,11 @@
       "@/*": ["src/*"]
     },
     "esModuleInterop": true,
+    "target": "es2022",
+    "module": "ESnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   },
 
   "include": ["src"],
