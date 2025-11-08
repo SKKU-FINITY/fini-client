@@ -4,7 +4,7 @@ import { vars } from '../../../styles/theme.css';
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '50rem',
+  width: '100%',
   gap: '1rem',
 });
 

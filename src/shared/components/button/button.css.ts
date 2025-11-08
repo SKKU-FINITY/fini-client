@@ -3,7 +3,7 @@ import { vars } from '../../../styles/theme.css';
 
 export const button = recipe({
   base: {
-    width: '50rem',
+    width: '100%',
     padding: '1rem',
     borderRadius: '0.5rem',
     fontWeight: vars.weight.medium,
