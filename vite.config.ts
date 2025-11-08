@@ -6,12 +6,12 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
-    vanillaExtractPlugin(),
     svgr({
       svgrOptions: {
         icon: true,
       },
     }),
+    react(),
+    vanillaExtractPlugin(),
   ],
 });
