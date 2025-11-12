@@ -1,13 +1,7 @@
-import { IBKLogo, KookminBankLogo, WooriBankLogo } from '../../shared/assets/svg';
+import * as styles from './home-page.css';
 
 const HomePage = () => {
-  return (
-    <div>
-      <IBKLogo width={100} height={100} />
-      <KookminBankLogo width={100} height={100} />
-      <WooriBankLogo width={100} height={100} />
-    </div>
-  );
+  return <div className={styles.title}>홈 페이지</div>;
 };
 
 export default HomePage;
