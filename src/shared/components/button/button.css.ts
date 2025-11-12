@@ -15,7 +15,7 @@ export const button = recipe({
 
     selectors: {
       '&:disabled': {
-        backgroundColor: vars.color.gray,
+        backgroundColor: vars.color.gray500,
         color: vars.color.white,
         cursor: 'not-allowed',
         opacity: 0.6,
