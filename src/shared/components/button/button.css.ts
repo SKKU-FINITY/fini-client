@@ -37,7 +37,7 @@ export const button = recipe({
         padding: '0',
         border: 'none',
         backgroundColor: 'transparent',
-        color: vars.color.blue200,
+        color: vars.color.blue300,
         fontSize: vars.size.xs,
         fontWeight: vars.weight.regular,
         textDecoration: 'underline',
