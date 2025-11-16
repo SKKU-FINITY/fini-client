@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-//import { AxiosError } from 'axios';
-//import { signUp } from '../../services/authService';
+import { AxiosError } from 'axios';
+import { signup } from '../../shared/api/auth';
 import Title from '../../shared/components/title/title';
 import Input from '../../shared/components/input/input';
 import Button from '../../shared/components/button/button';
@@ -30,16 +30,16 @@ const SignupPage = () => {
     }
   };
 
-  /*const handleSignup = async () => {
+  const handleSignup = async () => {
     try {
-      await signUp(id, password, nickname);
-      alert(`${nickname}님 반갑습니다! 회원가입에 성공했어요.`);
+      await signup(username, password, email);
+      alert(`${username}님 반갑습니다! 회원가입에 성공했어요.`);
       navigate('/login');
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
       alert(err.response?.data?.message || '회원가입에 실패했어요.');
     }
-  };*/
+  };
 
   return (
     <div className={styles.container}>
@@ -128,10 +128,7 @@ const SignupPage = () => {
             <p className={styles.errorMsg}>이메일 형식이 올바르지 않아요.</p>
           )}
 
-          <Button
-            //onClick={handleSignup}
-            disabled={!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
-          >
+          <Button onClick={handleSignup} disabled={!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}>
             회원가입 하기
           </Button>
         </>
