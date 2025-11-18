@@ -1,13 +1,13 @@
 import { vars } from '../../../styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
-export const savingsContainer = style({
+export const depositContainer = style({
   display: 'flex',
   flexDirection: 'column',
   width: '60rem',
   gap: '1rem',
   padding: '2rem 3rem',
-  border: `1px solid ${vars.color.blue300}`,
+  border: `1px solid ${vars.color.pink300}`,
   borderRadius: '10px',
 });
 
@@ -28,6 +28,7 @@ export const detail = style({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
+  padding: '0 5rem',
 });
 
 export const detailContainer = style({

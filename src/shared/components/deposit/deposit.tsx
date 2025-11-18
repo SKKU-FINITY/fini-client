@@ -1,31 +1,19 @@
-import * as styles from './savings.css';
+import * as styles from './deposit.css';
 
-interface SavingsProps {
+interface DepositProps {
   bankName: string;
   productName: string;
-  rsrvTypeNm: string;
   saveTerm: number;
   baseRate: number;
   maxRate: number;
 }
 
-const Savings = ({
-  bankName,
-  productName,
-  rsrvTypeNm,
-  saveTerm,
-  baseRate,
-  maxRate,
-}: SavingsProps) => {
+const Deposit = ({ bankName, productName, saveTerm, baseRate, maxRate }: DepositProps) => {
   return (
-    <div className={styles.savingsContainer}>
+    <div className={styles.depositContainer}>
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>{productName}</div>
       <div className={styles.detail}>
-        <div className={styles.detailContainer}>
-          <div className={styles.title}>유형</div>
-          <div className={styles.value}>{rsrvTypeNm}</div>
-        </div>
         <div className={styles.detailContainer}>
           <div className={styles.title}>기간</div>
           <div className={styles.value}>{saveTerm}개월</div>
@@ -43,4 +31,4 @@ const Savings = ({
   );
 };
 
-export default Savings;
+export default Deposit;
