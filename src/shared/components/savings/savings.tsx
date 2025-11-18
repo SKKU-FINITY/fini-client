@@ -35,7 +35,7 @@ const Savings = ({
           <div className={styles.value}>{baseRate}%</div>
         </div>
         <div className={styles.detailContainer}>
-          <div className={styles.title}>최대 우대 금리</div>
+          <div className={styles.title}>최대 금리</div>
           <div className={styles.value}>{maxRate}%</div>
         </div>
       </div>

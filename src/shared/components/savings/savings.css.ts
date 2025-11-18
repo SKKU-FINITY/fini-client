@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const savingsContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '65rem',
+  width: '60rem',
   gap: '1rem',
   padding: '2rem 3rem',
   border: `1px solid ${vars.color.blue300}`,
