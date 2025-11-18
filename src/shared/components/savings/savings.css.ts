@@ -5,7 +5,7 @@ export const savingsContainer = style({
   display: 'flex',
   flexDirection: 'column',
   width: '65rem',
-  gap: '1.6rem',
+  gap: '1rem',
   padding: '2rem 3rem',
   border: `1px solid ${vars.color.blue300}`,
   borderRadius: '10px',
