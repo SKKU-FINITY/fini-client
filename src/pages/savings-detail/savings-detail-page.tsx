@@ -81,19 +81,19 @@ const SavingsDetailPage = () => {
         <h1 className={styles.product}>{detail.productName}</h1>
         <div className={styles.detailTextContainer}>
           <div className={styles.textContainer}>
-            <h3 className={styles.textTitle}>가입대상:</h3>
+            <h3 className={styles.textTitle}>가입 대상:</h3>
             <p className={styles.textValue}>{detail.joinMember}</p>
           </div>
           <div className={styles.textContainer}>
-            <h3 className={styles.textTitle}>가입방법:</h3>
+            <h3 className={styles.textTitle}>가입 방법:</h3>
             <p className={styles.textValue}>{detail.joinWay}</p>
           </div>
           <div className={styles.textContainer}>
-            <h3 className={styles.textTitle}>가입제한:</h3>
+            <h3 className={styles.textTitle}>가입 제한:</h3>
             <p className={styles.textValue}>{detail.joinDeny}</p>
           </div>
           <div className={styles.textContainer}>
-            <h3 className={styles.textTitle}>최고한도:</h3>
+            <h3 className={styles.textTitle}>최고 한도:</h3>
             <p className={styles.textValue}>{formatLimit(detail.maxLimit)}</p>
           </div>
           <h3 className={styles.textTitle}>우대 조건</h3>
