@@ -93,20 +93,23 @@ const DepositDetailPage = () => {
             <h3 className={styles.textTitle}>최고 한도:</h3>
             <p className={styles.textValue}>{formatLimit(detail.maxLimit)}</p>
           </div>
-          <h3 className={styles.textTitle}>우대 조건</h3>
-          <pre className={styles.pre}>{detail.specialCondition}</pre>
-
-          <h3 className={styles.textTitle}>만기 후 이자율</h3>
-          <pre className={styles.pre}>{detail.maturityInterestInfo}</pre>
-
-          <h3 className={styles.textTitle}>기타 유의사항</h3>
-          <pre className={styles.pre}>{detail.etcNote}</pre>
+          <div className={styles.textColContainer}>
+            <h3 className={styles.textTitle}>우대 조건</h3>
+            <pre className={styles.pre}>{detail.specialCondition}</pre>
+          </div>
+          <div className={styles.textColContainer}>
+            <h3 className={styles.textTitle}>만기 후 이자율</h3>
+            <pre className={styles.pre}>{detail.maturityInterestInfo}</pre>
+          </div>
+          <div className={styles.textColContainer}>
+            <h3 className={styles.textTitle}>기타 유의사항</h3>
+            <pre className={styles.pre}>{detail.etcNote}</pre>
+          </div>
         </div>
 
         {option && (
           <div className={styles.optionContainer}>
             <h3 className={styles.optionText}>상품 옵션 ⭐</h3>
-
             <div className={styles.optionTextContainer}>
               <h4 className={styles.optionTitle}>이자 유형:</h4>
               <p className={styles.optionValue}>{option.interestType}</p>
