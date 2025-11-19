@@ -54,7 +54,7 @@ export const pre = style({
   whiteSpace: 'pre-wrap',
   fontFamily: 'inherit',
   fontSize: vars.size.xs,
-  color: vars.color.gray700,
+  color: vars.color.gray800,
   lineHeight: '2rem',
 });
 

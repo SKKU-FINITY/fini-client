@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSavingsDetail } from '../../shared/api/products';
+import { formatLimit } from '../../shared/utils/format';
 import * as styles from './savings-detail-page.css';
 import Header from '../../shared/components/header/header';
 
@@ -14,6 +15,7 @@ type Option = {
 
 type ProductDetail = {
   productId: number;
+  optionId: number;
   bankName: string;
   productName: string;
   joinDeny: string;
@@ -32,6 +34,7 @@ const SavingsDetailPage = () => {
   // TODO:API 연결 후 mockdata 삭제
   const mockDetail: ProductDetail = {
     productId: 50,
+    optionId: 167,
     bankName: '수협은행',
     productName: 'Sh해양플라스틱Zero!적금',
     joinDeny: '제한없음',
@@ -91,7 +94,7 @@ const SavingsDetailPage = () => {
           </div>
           <div className={styles.textContainer}>
             <h3 className={styles.textTitle}>최고한도:</h3>
-            <p className={styles.textValue}>{detail.maxLimit}원</p>
+            <p className={styles.textValue}>{formatLimit(detail.maxLimit)}</p>
           </div>
           <h3 className={styles.textTitle}>우대 조건</h3>
           <pre className={styles.pre}>{detail.specialCondition}</pre>
@@ -107,6 +110,10 @@ const SavingsDetailPage = () => {
           <div className={styles.optionContainer}>
             <h3 className={styles.optionText}>상품 옵션 ⭐</h3>
 
+            <div className={styles.optionTextContainer}>
+              <h4 className={styles.optionTitle}>이자 유형:</h4>
+              <p className={styles.optionValue}>{option.interestType}</p>
+            </div>
             <div className={styles.optionTextContainer}>
               <h4 className={styles.optionTitle}>적립 방식:</h4>
               <p className={styles.optionValue}>{option.reserveType}</p>
