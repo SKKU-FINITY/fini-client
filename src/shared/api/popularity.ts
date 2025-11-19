@@ -6,8 +6,8 @@ export const getPopularSavings = async () => {
   return res.data;
 };
 
-export const compareSavings = async (id: number) => {
-  const res = await api.get(POPULARITY.SAVINGS_COMPARE(id));
+export const compareSavings = async (productId: number, optionId: number) => {
+  const res = await api.get(POPULARITY.SAVINGS_COMPARE(productId, optionId));
   return res.data;
 };
 
@@ -16,7 +16,7 @@ export const getPopularDeposits = async () => {
   return res.data;
 };
 
-export const compareDeposits = async (id: number) => {
-  const res = await api.get(POPULARITY.DEPOSITS_COMPARE(id));
+export const compareDeposits = async (productId: number, optionId: number) => {
+  const res = await api.get(POPULARITY.DEPOSITS_COMPARE(productId, optionId));
   return res.data;
 };

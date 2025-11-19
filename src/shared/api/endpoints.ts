@@ -7,14 +7,16 @@ export const AUTH = {
 
 export const PRODUCTS = {
   SAVINGS_LIST: '/products/savings',
-  SAVINGS_DETAIL: (id: number) => `/products/savings/${id}`,
+  SAVINGS_DETAIL: (productId: number, optionId: number) => `/savings/${productId}/${optionId}`,
   DEPOSITS_LIST: '/products/deposits',
-  DEPOSITS_DETAIL: (id: number) => `/products/deposits/${id}`,
+  DEPOSITS_DETAIL: (productId: number, optionId: number) => `/deposits/${productId}/${optionId}`,
 };
 
 export const POPULARITY = {
   SAVINGS_POPULAR: '/recommendations/savings',
-  SAVINGS_COMPARE: (id: number) => `/recommendations/savings/compare/${id}`,
+  SAVINGS_COMPARE: (productId: number, optionId: number) =>
+    `/recommendations/savings/compare/${productId}/${optionId}`,
   DEPOSITS_POPULAR: '/recommendations/deposits',
-  DEPOSITS_COMPARE: (id: number) => `/recommendations/deposits/compare/${id}`,
+  DEPOSITS_COMPARE: (productId: number, optionId: number) =>
+    `/recommendations/deposits/compare/${productId}/${optionId}`,
 };

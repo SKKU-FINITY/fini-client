@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import * as styles from './savings.css';
 
 interface SavingsProps {
+  productId: number;
+  optionId: number;
   bankName: string;
   productName: string;
   rsrvTypeNm: string;
@@ -10,6 +13,8 @@ interface SavingsProps {
 }
 
 const Savings = ({
+  productId,
+  optionId,
   bankName,
   productName,
   rsrvTypeNm,
@@ -17,8 +22,13 @@ const Savings = ({
   baseRate,
   maxRate,
 }: SavingsProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.savingsContainer}>
+    <div
+      className={styles.savingsContainer}
+      onClick={() => navigate(`/savings/${productId}/${optionId}`)}
+    >
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>{productName}</div>
       <div className={styles.detail}>

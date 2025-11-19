@@ -6,8 +6,8 @@ export const getSavingsList = async () => {
   return res.data;
 };
 
-export const getSavingsDetail = async (id: number) => {
-  const res = await api.get(PRODUCTS.SAVINGS_DETAIL(id));
+export const getSavingsDetail = async (productId: number, optionId: number) => {
+  const res = await api.get(PRODUCTS.SAVINGS_DETAIL(productId, optionId));
   return res.data;
 };
 
@@ -16,7 +16,7 @@ export const getDepositsList = async () => {
   return res.data;
 };
 
-export const getDepositsDetail = async (id: number) => {
-  const res = await api.get(PRODUCTS.DEPOSITS_DETAIL(id));
+export const getDepositsDetail = async (productId: number, optionId: number) => {
+  const res = await api.get(PRODUCTS.DEPOSITS_DETAIL(productId, optionId));
   return res.data;
 };

@@ -29,6 +29,7 @@ export const vars = createGlobalTheme(':root', {
     lg: '2.5rem',
     md: '2rem',
     sm: '1.8rem',
+    ms: '1.6rem',
     xs: '1.5rem',
   },
   weight: {
