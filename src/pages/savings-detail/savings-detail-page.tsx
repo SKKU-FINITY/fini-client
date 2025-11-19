@@ -29,7 +29,7 @@ type ProductDetail = {
 const SavingsDetailPage = () => {
   const { productId, optionId } = useParams();
 
-  // API 연결 후 mockdata 삭제
+  // TODO:API 연결 후 mockdata 삭제
   const mockDetail: ProductDetail = {
     productId: 50,
     bankName: '수협은행',
@@ -54,7 +54,7 @@ const SavingsDetailPage = () => {
     ],
   };
 
-  // API 연결 후 주석 삭제
+  // TODO: API 연결 후 주석 삭제
   //const [detail, setDetail] = useState<ProductDetail | null>(null);
   const [detail, setDetail] = useState<ProductDetail | null>(mockDetail);
 
@@ -127,6 +127,7 @@ const SavingsDetailPage = () => {
         )}
       </div>
 
+      {/* TODO: 유사 상품 리스트 API 연결 후 구현 */}
       <div className={styles.similarProductsContainer}>
         <div>유사 상품 리스트</div>
         <div>유사 상품 리스트</div>
