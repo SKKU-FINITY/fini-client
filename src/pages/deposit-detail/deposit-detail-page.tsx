@@ -5,16 +5,19 @@ import { formatLimit } from '../../shared/utils/format';
 import * as styles from './deposit-detail-page.css';
 import Header from '../../shared/components/header/header';
 
-type Option = {
-  interestType: string;
-  saveTerm: number;
-  baseRate: number;
-  maxRate: number;
+type SimilarProducts = {
+  productId: number;
+  optionId: number;
+  bankName: string;
+  productName: string;
+  maxLimitDiff: number;
+  termDiff: number;
+  baseRateDiff: number;
+  maxRateDiff: number;
 };
 
 type ProductDetail = {
   productId: number;
-  optionId: number;
   bankName: string;
   productName: string;
   joinDeny: string;
@@ -24,39 +27,18 @@ type ProductDetail = {
   etcNote: string;
   maxLimit: string;
   maturityInterestInfo: string;
-  options: Option[];
+  optionId: number;
+  interestType: string;
+  saveTerm: number;
+  baseRate: number;
+  maxRate: number;
+  similarProducts: SimilarProducts[];
 };
 
 const DepositDetailPage = () => {
   const { productId, optionId } = useParams();
 
-  // TODO:API 연결 후 mockdata 삭제
-  const mockDetail: ProductDetail = {
-    productId: 34,
-    optionId: 293,
-    bankName: '주식회사 케이뱅크',
-    productName: '코드K 정기예금',
-    joinDeny: '제한없음',
-    joinMember: '만 17세 이상 실명의 개인 및 개인사업자',
-    joinWay: '스마트폰',
-    specialCondition: '우대조건 없음',
-    etcNote: '가입금액 : 1백만원 이상\n가입기간 : 1개월~36개월',
-    maxLimit: '제한 없음',
-    maturityInterestInfo:
-      '만기 후 \n- 1개월 이내 : 만기시점 기본금리 X 50%\n- 1개월 초과~6개월 이내 : 만기시점 기본금리 X 30%\n- 6개월 초과 : 연 0.20%',
-    options: [
-      {
-        interestType: '단리',
-        saveTerm: 6,
-        baseRate: 2.86,
-        maxRate: 2.86,
-      },
-    ],
-  };
-
-  // TODO: API 연결 후 주석 삭제
-  //const [detail, setDetail] = useState<ProductDetail | null>(null);
-  const [detail, setDetail] = useState<ProductDetail | null>(mockDetail);
+  const [detail, setDetail] = useState<ProductDetail | null>(null);
 
   useEffect(() => {
     if (!productId || !optionId) return;
@@ -66,9 +48,9 @@ const DepositDetailPage = () => {
     });
   }, [productId, optionId]);
 
-  if (!detail) return <div>Loading...</div>;
-
-  const option = detail.options[0];
+  if (!detail) {
+    return <div className={styles.notFound}>찾으시는 상품이 존재하지 않습니다.</div>;
+  }
 
   return (
     <>
@@ -107,27 +89,25 @@ const DepositDetailPage = () => {
           </div>
         </div>
 
-        {option && (
-          <div className={styles.optionContainer}>
-            <h3 className={styles.optionText}>상품 옵션 ⭐</h3>
-            <div className={styles.optionTextContainer}>
-              <h4 className={styles.optionTitle}>이자 유형:</h4>
-              <p className={styles.optionValue}>{option.interestType}</p>
-            </div>
-            <div className={styles.optionTextContainer}>
-              <h4 className={styles.optionTitle}>저축 기간:</h4>
-              <p className={styles.optionValue}>{option.saveTerm}개월</p>
-            </div>
-            <div className={styles.optionTextContainer}>
-              <h4 className={styles.optionTitle}>기본 금리:</h4>
-              <p className={styles.optionValue}>{option.baseRate}%</p>
-            </div>
-            <div className={styles.optionTextContainer}>
-              <h4 className={styles.optionTitle}>최대 금리:</h4>
-              <p className={styles.optionValue}>{option.maxRate}%</p>
-            </div>
+        <div className={styles.optionContainer}>
+          <h3 className={styles.optionText}>상품 옵션 ⭐</h3>
+          <div className={styles.optionTextContainer}>
+            <h4 className={styles.optionTitle}>이자 유형:</h4>
+            <p className={styles.optionValue}>{detail.interestType}</p>
           </div>
-        )}
+          <div className={styles.optionTextContainer}>
+            <h4 className={styles.optionTitle}>저축 기간:</h4>
+            <p className={styles.optionValue}>{detail.saveTerm}개월</p>
+          </div>
+          <div className={styles.optionTextContainer}>
+            <h4 className={styles.optionTitle}>기본 금리:</h4>
+            <p className={styles.optionValue}>{detail.baseRate}%</p>
+          </div>
+          <div className={styles.optionTextContainer}>
+            <h4 className={styles.optionTitle}>최대 금리:</h4>
+            <p className={styles.optionValue}>{detail.maxRate}%</p>
+          </div>
+        </div>
       </div>
 
       {/* TODO: 유사 상품 리스트 API 연결 후 구현 */}

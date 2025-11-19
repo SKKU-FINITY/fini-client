@@ -13,6 +13,12 @@ export const detailContainer = style({
   marginTop: '9rem',
 });
 
+export const notFound = style({
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.bold,
+  color: vars.color.gray800,
+});
+
 export const bank = style({
   fontSize: vars.size.md,
   fontWeight: vars.weight.bold,
