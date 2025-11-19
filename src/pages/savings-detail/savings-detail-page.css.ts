@@ -29,13 +29,19 @@ export const product = style({
 export const detailTextContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '1.1rem',
   paddingBottom: '1.5rem',
 });
 
 export const textContainer = style({
   display: 'flex',
   gap: '0.5rem',
+});
+
+export const textColContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.7rem',
 });
 
 export const textTitle = style({
@@ -63,18 +69,19 @@ export const optionContainer = style({
   flexDirection: 'column',
   borderTop: `1.2px solid ${vars.color.blue300}`,
   paddingTop: '1.5rem',
-});
-
-export const optionTextContainer = style({
-  display: 'flex',
-  gap: '0.5rem',
-  paddingTop: '0.7rem',
+  gap: '0.7rem',
 });
 
 export const optionText = style({
   fontSize: vars.size.md,
   fontWeight: vars.weight.bold,
   color: vars.color.blue300,
+  paddingBottom: '0.3rem',
+});
+
+export const optionTextContainer = style({
+  display: 'flex',
+  gap: '0.5rem',
 });
 
 export const optionTitle = style({
