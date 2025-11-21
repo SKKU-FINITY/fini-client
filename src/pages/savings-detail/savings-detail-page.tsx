@@ -4,12 +4,14 @@ import { getSavingsDetail } from '../../shared/api/products';
 import { formatLimit } from '../../shared/utils/format';
 import * as styles from './savings-detail-page.css';
 import Header from '../../shared/components/header/header';
+import SavingsCompare from '../../shared/components/savings-compare/savings-compare';
 
 type SimilarProducts = {
   productId: number;
   optionId: number;
   bankName: string;
   productName: string;
+  reserveType: string;
   maxLimitDiff: number;
   termDiff: number;
   baseRateDiff: number;
@@ -92,33 +94,55 @@ const SavingsDetailPage = () => {
 
         <div className={styles.optionContainer}>
           <h3 className={styles.optionText}>상품 옵션 ⭐</h3>
-          <div className={styles.optionTextContainer}>
-            <h4 className={styles.optionTitle}>이자 유형:</h4>
-            <p className={styles.optionValue}>{detail.interestType}</p>
+          <div className={styles.textContainer}>
+            <h4 className={styles.textTitle}>이자 유형:</h4>
+            <p className={styles.textValue}>{detail.interestType}</p>
           </div>
-          <div className={styles.optionTextContainer}>
-            <h4 className={styles.optionTitle}>적립 방식:</h4>
-            <p className={styles.optionValue}>{detail.reserveType}</p>
+          <div className={styles.textContainer}>
+            <h4 className={styles.textTitle}>적립 방식:</h4>
+            <p className={styles.textValue}>{detail.reserveType}</p>
           </div>
-          <div className={styles.optionTextContainer}>
-            <h4 className={styles.optionTitle}>저축 기간:</h4>
-            <p className={styles.optionValue}>{detail.saveTerm}개월</p>
+          <div className={styles.textContainer}>
+            <h4 className={styles.textTitle}>저축 기간:</h4>
+            <p className={styles.textValue}>{detail.saveTerm}개월</p>
           </div>
-          <div className={styles.optionTextContainer}>
-            <h4 className={styles.optionTitle}>기본 금리:</h4>
-            <p className={styles.optionValue}>{detail.baseRate}%</p>
+          <div className={styles.textContainer}>
+            <h4 className={styles.textTitle}>기본 금리:</h4>
+            <p className={styles.textValue}>{detail.baseRate}%</p>
           </div>
-          <div className={styles.optionTextContainer}>
-            <h4 className={styles.optionTitle}>최대 금리:</h4>
-            <p className={styles.optionValue}>{detail.maxRate}%</p>
+          <div className={styles.textContainer}>
+            <h4 className={styles.textTitle}>최대 금리:</h4>
+            <p className={styles.textValue}>{detail.maxRate}%</p>
           </div>
         </div>
       </div>
 
-      {/* TODO: 유사 상품 리스트 API 연결 후 구현 */}
       <div className={styles.similarProductsContainer}>
-        <div>유사 상품 리스트</div>
-        <div>유사 상품 리스트</div>
+        <h3 className={styles.similarTitle}>찾으신 상품과 비슷한 상품들을 추천해드려요</h3>
+        <p className={styles.similarText}>
+          선택하신 상품과의 비교 결과를 기반으로 추천된 상품입니다.
+        </p>
+
+        <div className={styles.similarProductsList}>
+          {detail.similarProducts.length === 0 ? (
+            <div className={styles.notFound}>유사한 상품이 없습니다.</div>
+          ) : (
+            detail.similarProducts.map((item) => (
+              <SavingsCompare
+                key={`${item.productId}-${item.optionId}`}
+                productId={item.productId}
+                optionId={item.optionId}
+                bankName={item.bankName}
+                productName={item.productName}
+                reserveType={item.reserveType}
+                maxLimitDiff={item.maxLimitDiff}
+                termDiff={item.termDiff}
+                baseRateDiff={item.baseRateDiff}
+                maxRateDiff={item.maxRateDiff}
+              />
+            ))
+          )}
+        </div>
       </div>
     </>
   );
