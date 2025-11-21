@@ -17,7 +17,7 @@ export const formatDiffMoney = (num: number | null | undefined) => {
 };
 
 export const getDiffText = (num: number, suffix = '') => {
-  if (num > 0) return `+${num}${suffix}`;
+  if (num >= 0) return `+${num}${suffix}`;
   return `${num}${suffix}`;
 };
 
