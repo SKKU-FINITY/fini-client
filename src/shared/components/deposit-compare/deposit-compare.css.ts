@@ -19,10 +19,22 @@ export const bank = style({
 });
 
 export const product = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  paddingBottom: '1rem',
+});
+
+export const productName = style({
   fontSize: vars.size.md,
   fontWeight: vars.weight.bold,
   color: vars.color.gray700,
-  paddingBottom: '1rem',
+});
+
+export const productDetail = style({
+  fontSize: vars.size.sm,
+  fontWeight: vars.weight.bold,
+  color: vars.color.gray700,
 });
 
 export const detail = style({
