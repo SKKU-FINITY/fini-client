@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <img src='/main-logo.png' alt='FINI Logo' className={styles.logoImg} />
+      <img src='/fini-logo.png' alt='FINI Logo' className={styles.logoImg} />
       <Title>로그인</Title>
       <Input
         type='text'
