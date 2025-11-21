@@ -7,6 +7,7 @@ interface SavingsCompareProps {
   optionId: number;
   bankName: string;
   productName: string;
+  interestType: string;
   reserveType: string;
   maxLimitDiff: number;
   termDiff: number;
@@ -19,6 +20,7 @@ const SavingsCompare = ({
   optionId,
   bankName,
   productName,
+  interestType,
   reserveType,
   maxLimitDiff,
   termDiff,
@@ -37,7 +39,10 @@ const SavingsCompare = ({
     >
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>
-        {productName} ({reserveType})
+        <div className={styles.productName}>{productName}</div>
+        <div className={styles.productDetail}>
+          ({reserveType} / {interestType})
+        </div>
       </div>
 
       <div className={styles.detail}>
