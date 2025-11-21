@@ -1,6 +1,6 @@
-import * as styles from './deposit.css';
+import * as styles from './deposit-basic.css';
 
-interface DepositProps {
+interface DepositBasicProps {
   bankName: string;
   productName: string;
   saveTerm: number;
@@ -8,7 +8,13 @@ interface DepositProps {
   maxRate: number;
 }
 
-const Deposit = ({ bankName, productName, saveTerm, baseRate, maxRate }: DepositProps) => {
+const DepositBasic = ({
+  bankName,
+  productName,
+  saveTerm,
+  baseRate,
+  maxRate,
+}: DepositBasicProps) => {
   return (
     <div className={styles.depositContainer}>
       <div className={styles.bank}>{bankName}</div>
@@ -31,4 +37,4 @@ const Deposit = ({ bankName, productName, saveTerm, baseRate, maxRate }: Deposit
   );
 };
 
-export default Deposit;
+export default DepositBasic;

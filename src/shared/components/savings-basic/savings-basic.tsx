@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import * as styles from './savings.css';
+import * as styles from './savings-basic.css';
 
-interface SavingsProps {
+interface SavingsBasicProps {
   productId: number;
   optionId: number;
   bankName: string;
@@ -12,7 +12,7 @@ interface SavingsProps {
   maxRate: number;
 }
 
-const Savings = ({
+const SavingsBasic = ({
   productId,
   optionId,
   bankName,
@@ -21,7 +21,7 @@ const Savings = ({
   saveTerm,
   baseRate,
   maxRate,
-}: SavingsProps) => {
+}: SavingsBasicProps) => {
   const navigate = useNavigate();
 
   return (
@@ -53,4 +53,4 @@ const Savings = ({
   );
 };
 
-export default Savings;
+export default SavingsBasic;
