@@ -27,7 +27,10 @@ const SavingsBasic = ({
   return (
     <div
       className={styles.savingsContainer}
-      onClick={() => navigate(`/savings/${productId}/${optionId}`)}
+      onClick={() => {
+        navigate(`/savings/${productId}/${optionId}`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
     >
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>{productName}</div>
