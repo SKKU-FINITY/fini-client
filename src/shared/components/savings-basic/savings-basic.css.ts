@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const savingsContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '60rem',
+  width: '70rem',
   gap: '1rem',
   padding: '2rem 3rem',
   border: `1px solid ${vars.color.blue300}`,
@@ -20,7 +20,7 @@ export const bank = style({
 export const product = style({
   fontSize: vars.size.lg,
   fontWeight: vars.weight.bold,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
   paddingBottom: '1rem',
 });
 
@@ -47,5 +47,5 @@ export const title = style({
 export const value = style({
   fontSize: vars.size.sm,
   fontWeight: vars.weight.regular,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
 });
