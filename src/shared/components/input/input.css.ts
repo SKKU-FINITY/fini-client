@@ -22,12 +22,19 @@ export const inputWrapper = style({
 export const input = style({
   width: '100%',
   padding: '1rem 3rem 1rem 1rem',
-  border: '0.1rem solid rgb(100, 100, 100)',
+  border: `0.1rem solid ${vars.color.gray600}`,
   borderRadius: '0.5rem',
   fontSize: vars.size.xs,
   fontWeight: vars.weight.medium,
   color: vars.color.black,
   boxSizing: 'border-box',
+
+  selectors: {
+    '&:focus': {
+      outline: 'none',
+      border: `0.15rem solid ${vars.color.pink300}`,
+    },
+  },
 });
 
 export const icon = style({
