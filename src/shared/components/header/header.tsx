@@ -17,9 +17,11 @@ const Header = () => {
 
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.logo} onClick={() => navigate('/')}>
-        FINI
+      <div className={styles.logoContainer} onClick={() => navigate('/')}>
+        <img src='/fini-line.png' alt='FINI Logo' className={styles.logoImg} />
+        <div className={styles.logo}>FINI</div>
       </div>
+
       <button className={styles.logout} onClick={handleLogout}>
         로그아웃
       </button>
