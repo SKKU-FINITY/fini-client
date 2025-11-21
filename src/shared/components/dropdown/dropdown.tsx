@@ -8,7 +8,7 @@ const OPTIONS = [1, 3, 6, 12, 24, 36];
 
 const DEFAULT_PLACEHOLDER = '저축 희망 기간을 선택해주세요.';
 
-const DropDown = () => {
+const DropDown = ({ color = 'pink' }: { color?: 'pink' | 'blue' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
 
@@ -17,15 +17,11 @@ const DropDown = () => {
     setIsOpen(false);
   };
 
-  const handleToggleDropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
     <div className={styles.dropdownWrapper}>
       <div
-        className={!isOpen ? styles.dropdownContainer : styles.dropdownContainerOpen}
-        onClick={handleToggleDropdown}
+        className={styles.dropdownContainer({ color, open: isOpen })}
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         <div className={styles.dropdownPlaceholder}>{selected || DEFAULT_PLACEHOLDER}</div>
         <FontAwesomeIcon
@@ -42,6 +38,7 @@ const DropDown = () => {
               key={option}
               option={option}
               isSelected={option === selected}
+              variant={color}
               onSelect={handleOptionClick}
             />
           ))}

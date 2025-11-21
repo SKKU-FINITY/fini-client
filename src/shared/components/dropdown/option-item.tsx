@@ -1,21 +1,20 @@
 import * as styles from './option-item.css';
 
-interface OptionItemProps {
+interface Props {
   option: number;
   isSelected: boolean;
-  onSelect: (option: number) => void;
+  variant: 'pink' | 'blue';
+  onSelect: (value: number) => void;
 }
 
-const OptionItem = ({ option, isSelected, onSelect }: OptionItemProps) => {
-  const handleClick = () => {
-    onSelect(option);
-  };
-
+const OptionItem = ({ option, isSelected, variant, onSelect }: Props) => {
   return (
     <li
-      className={isSelected ? styles.dropdownItemSelected : styles.dropdownItem}
+      className={`${styles.dropdownItem({ color: variant })} ${
+        isSelected ? (variant === 'pink' ? styles.selectedPink : styles.selectedBlue) : ''
+      }`}
       data-selected={isSelected}
-      onClick={handleClick}
+      onClick={() => onSelect(option)}
     >
       {option}
     </li>
