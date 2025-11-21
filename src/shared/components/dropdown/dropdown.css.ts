@@ -1,4 +1,5 @@
 import { vars } from '../../../styles/theme.css';
+import { recipe } from '@vanilla-extract/recipes';
 import { style } from '@vanilla-extract/css';
 
 export const dropdownWrapper = style({
@@ -6,29 +7,48 @@ export const dropdownWrapper = style({
   width: '50rem',
 });
 
-export const dropdownContainer = style({
-  display: 'flex',
-  width: '100%',
-  height: '5.6rem',
-  padding: '1.6rem 1.6rem 1.6rem 2rem',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  borderRadius: '12px',
-  border: `1px solid ${vars.color.gray500}`,
-  backgroundColor: vars.color.white,
-  cursor: 'pointer',
-  userSelect: 'none',
-});
-
-export const dropdownContainerOpen = style([
-  dropdownContainer,
-  {
-    border: `1px solid ${vars.color.pink300}`,
+export const dropdownContainer = recipe({
+  base: {
+    display: 'flex',
+    width: '100%',
+    height: '5.6rem',
+    padding: '1.6rem 1.6rem 1.6rem 2rem',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: '12px',
+    border: `1px solid ${vars.color.gray500}`,
+    backgroundColor: vars.color.white,
+    cursor: 'pointer',
+    userSelect: 'none',
+    transition: 'border-color 0.25s ease',
   },
-]);
 
-export const icon = style({
-  transition: 'transform 0.3s ease',
+  variants: {
+    color: {
+      pink: {},
+      blue: {},
+    },
+    open: {
+      true: {},
+      false: {},
+    },
+  },
+
+  compoundVariants: [
+    {
+      variants: { color: 'pink', open: true },
+      style: { borderColor: vars.color.pink300 },
+    },
+    {
+      variants: { color: 'blue', open: true },
+      style: { borderColor: vars.color.blue300 },
+    },
+  ],
+
+  defaultVariants: {
+    color: 'pink',
+    open: false,
+  },
 });
 
 export const dropdownPlaceholder = style({
@@ -50,25 +70,6 @@ export const dropdownList = style({
   userSelect: 'none',
 });
 
-export const dropdownItem = style({
-  fontSize: vars.size.md,
-  fontWeight: vars.weight.regular,
-  color: vars.color.gray600,
-  padding: '1.2rem',
-  cursor: 'pointer',
-  selectors: {
-    '&:hover:where(:not([data-selected="true"]))': {
-      backgroundColor: vars.color.white,
-    },
-    '&:not(:disabled):active': {
-      backgroundColor: vars.color.gray500,
-    },
-  },
+export const icon = style({
+  transition: 'transform 0.3s ease',
 });
-
-export const dropdownItemSelected = style([
-  dropdownItem,
-  {
-    backgroundColor: vars.color.pink100,
-  },
-]);
