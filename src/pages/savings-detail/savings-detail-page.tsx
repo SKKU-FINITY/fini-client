@@ -12,6 +12,7 @@ type SimilarProducts = {
   bankName: string;
   productName: string;
   reserveType: string;
+  interestType: string;
   maxLimitDiff: number;
   termDiff: number;
   baseRateDiff: number;
@@ -135,6 +136,7 @@ const SavingsDetailPage = () => {
                 bankName={item.bankName}
                 productName={item.productName}
                 reserveType={item.reserveType}
+                interestType={item.interestType}
                 maxLimitDiff={item.maxLimitDiff}
                 termDiff={item.termDiff}
                 baseRateDiff={item.baseRateDiff}
