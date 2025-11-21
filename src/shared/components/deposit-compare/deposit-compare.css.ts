@@ -7,7 +7,7 @@ export const savingsContainer = style({
   width: '70rem',
   gap: '0.8rem',
   padding: '2rem 3rem',
-  border: `1px solid ${vars.color.blue300}`,
+  border: `1px solid ${vars.color.pink300}`,
   borderRadius: '10px',
   cursor: 'pointer',
 });
