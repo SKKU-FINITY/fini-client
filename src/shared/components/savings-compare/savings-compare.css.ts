@@ -53,15 +53,15 @@ export const value = style({
 
 export const positive = style({
   color: vars.color.positive,
-  fontWeight: 500,
+  fontWeight: vars.weight.medium,
 });
 
 export const negative = style({
   color: vars.color.negative,
-  fontWeight: 500,
+  fontWeight: vars.weight.medium,
 });
 
 export const zero = style({
   color: vars.color.gray600,
-  fontWeight: 500,
+  fontWeight: vars.weight.medium,
 });
