@@ -43,6 +43,7 @@ const SignupPage = () => {
 
   return (
     <div className={styles.container}>
+      <img src='/main-logo.png' alt='FINI Logo' className={styles.logoImg} />
       <Title>회원가입</Title>
 
       {/* 아이디 입력 단계 */}

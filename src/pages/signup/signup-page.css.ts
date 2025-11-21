@@ -7,8 +7,14 @@ export const container = style({
   alignItems: 'stretch',
   justifyContent: 'center',
   width: '50rem',
-  minHeight: '100vh',
   gap: '1.2rem',
+  marginBottom: '8rem',
+});
+
+export const logoImg = style({
+  width: '27rem',
+  marginBottom: '1rem',
+  alignSelf: 'center',
 });
 
 export const errorMsg = style({
