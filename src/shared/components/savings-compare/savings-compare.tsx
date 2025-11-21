@@ -7,6 +7,7 @@ interface SavingsCompareProps {
   optionId: number;
   bankName: string;
   productName: string;
+  interestType: string;
   reserveType: string;
   maxLimitDiff: number;
   termDiff: number;
@@ -19,6 +20,7 @@ const SavingsCompare = ({
   optionId,
   bankName,
   productName,
+  interestType,
   reserveType,
   maxLimitDiff,
   termDiff,
@@ -37,9 +39,11 @@ const SavingsCompare = ({
     >
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>
-        {productName} ({reserveType})
+        <div className={styles.productName}>{productName}</div>
+        <div className={styles.productDetail}>
+          ({reserveType} / {interestType})
+        </div>
       </div>
-
       <div className={styles.detail}>
         <div className={styles.detailContainer}>
           <div className={styles.title}>최대 한도</div>
@@ -47,21 +51,18 @@ const SavingsCompare = ({
             {formatDiffMoney(maxLimitDiff)}
           </div>
         </div>
-
         <div className={styles.detailContainer}>
           <div className={styles.title}>기간</div>
           <div className={`${styles.value} ${getDiffClassName(termDiff, styles)}`}>
             {getDiffText(termDiff, '개월')}
           </div>
         </div>
-
         <div className={styles.detailContainer}>
           <div className={styles.title}>기본 금리</div>
           <div className={`${styles.value} ${getDiffClassName(baseRateDiff, styles)}`}>
             {getDiffText(baseRateDiff, '%')}
           </div>
         </div>
-
         <div className={styles.detailContainer}>
           <div className={styles.title}>최대 금리</div>
           <div className={`${styles.value} ${getDiffClassName(maxRateDiff, styles)}`}>

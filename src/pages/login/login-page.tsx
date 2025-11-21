@@ -33,6 +33,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
+      <img src='/fini-logo.png' alt='FINI Logo' className={styles.logoImg} />
       <Title>로그인</Title>
       <Input
         type='text'
@@ -45,6 +46,7 @@ const Login = () => {
         placeholder='비밀번호'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        showIcon
       />
       <Button onClick={handleLogin} disabled={!username || !password}>
         로그인

@@ -13,15 +13,26 @@ export const headerContainer = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   zIndex: 10,
-  padding: '0 10rem',
+  padding: '0 8rem',
+});
+
+export const logoContainer = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.8rem',
+  cursor: 'pointer',
+  userSelect: 'none',
 });
 
 export const logo = style({
   fontSize: '2.4rem',
   fontWeight: 'bold',
   color: vars.color.gray800,
-  cursor: 'pointer',
-  userSelect: 'none',
+});
+
+export const logoImg = style({
+  width: '3rem',
+  height: '3rem',
 });
 
 export const logout = style({
