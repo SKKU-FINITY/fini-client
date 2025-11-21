@@ -52,13 +52,13 @@ export const textColContainer = style({
 
 export const textTitle = style({
   fontSize: vars.size.sm,
-  fontWeight: vars.weight.medium,
+  fontWeight: vars.weight.semibold,
   color: vars.color.blue300,
 });
 
 export const textValue = style({
   fontSize: vars.size.sm,
-  fontWeight: vars.weight.regular,
+  fontWeight: vars.weight.medium,
   color: vars.color.gray800,
 });
 
@@ -67,6 +67,7 @@ export const pre = style({
   fontFamily: 'inherit',
   fontSize: vars.size.xs,
   color: vars.color.gray800,
+  fontWeight: vars.weight.regular,
   lineHeight: '2rem',
 });
 
@@ -79,30 +80,35 @@ export const optionContainer = style({
 });
 
 export const optionText = style({
-  fontSize: vars.size.md,
+  fontSize: vars.size.lg,
   fontWeight: vars.weight.bold,
   color: vars.color.blue300,
-  paddingBottom: '0.3rem',
-});
-
-export const optionTextContainer = style({
-  display: 'flex',
-  gap: '0.5rem',
-});
-
-export const optionTitle = style({
-  fontSize: vars.size.ms,
-  fontWeight: vars.weight.medium,
-  color: vars.color.blue300,
-});
-
-export const optionValue = style({
-  fontSize: vars.size.ms,
-  fontWeight: vars.weight.regular,
-  color: vars.color.gray800,
+  paddingBottom: '0.5rem',
 });
 
 export const similarProductsContainer = style({
   display: 'flex',
   flexDirection: 'column',
+  paddingTop: '2rem',
+  paddingBottom: '5rem',
+});
+
+export const similarProductsList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  paddingTop: '2rem',
+  paddingBottom: '5rem',
+  gap: '1.2rem',
+});
+
+export const similarTitle = style({
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.bold,
+  color: vars.color.blue300,
+});
+
+export const similarText = style({
+  fontSize: vars.size.ms,
+  fontWeight: vars.weight.regular,
+  color: vars.color.gray700,
 });

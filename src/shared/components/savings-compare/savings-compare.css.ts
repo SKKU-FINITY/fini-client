@@ -4,23 +4,24 @@ import { style } from '@vanilla-extract/css';
 export const savingsContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '60rem',
-  gap: '1rem',
+  width: '70rem',
+  gap: '0.8rem',
   padding: '2rem 3rem',
   border: `1px solid ${vars.color.blue300}`,
   borderRadius: '10px',
+  cursor: 'pointer',
 });
 
 export const bank = style({
-  fontSize: vars.size.sm,
+  fontSize: vars.size.ms,
   fontWeight: vars.weight.medium,
   color: vars.color.gray700,
 });
 
 export const product = style({
-  fontSize: vars.size.lg,
+  fontSize: vars.size.md,
   fontWeight: vars.weight.bold,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
   paddingBottom: '1rem',
 });
 
@@ -47,5 +48,20 @@ export const title = style({
 export const value = style({
   fontSize: vars.size.sm,
   fontWeight: vars.weight.regular,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
+});
+
+export const positive = style({
+  color: vars.color.positive,
+  fontWeight: 500,
+});
+
+export const negative = style({
+  color: vars.color.negative,
+  fontWeight: 500,
+});
+
+export const zero = style({
+  color: vars.color.gray600,
+  fontWeight: 500,
 });

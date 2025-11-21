@@ -1,13 +1,13 @@
 import { vars } from '../../../styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
-export const depositContainer = style({
+export const savingsContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '60rem',
+  width: '70rem',
   gap: '1rem',
   padding: '2rem 3rem',
-  border: `1px solid ${vars.color.pink300}`,
+  border: `1px solid ${vars.color.blue300}`,
   borderRadius: '10px',
 });
 
@@ -20,7 +20,7 @@ export const bank = style({
 export const product = style({
   fontSize: vars.size.lg,
   fontWeight: vars.weight.bold,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
   paddingBottom: '1rem',
 });
 
@@ -28,7 +28,6 @@ export const detail = style({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
-  padding: '0 5rem',
 });
 
 export const detailContainer = style({
@@ -36,7 +35,7 @@ export const detailContainer = style({
   flexDirection: 'column',
   gap: '0.4rem',
   alignItems: 'center',
-  width: '7rem',
+  width: '10rem',
 });
 
 export const title = style({
@@ -48,5 +47,5 @@ export const title = style({
 export const value = style({
   fontSize: vars.size.sm,
   fontWeight: vars.weight.regular,
-  color: vars.color.gray800,
+  color: vars.color.gray700,
 });

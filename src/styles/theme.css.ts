@@ -14,6 +14,9 @@ export const vars = createGlobalTheme(':root', {
     white: '#FFFFFF',
     danger: '#FF0000',
 
+    positive: '#2E8B57',
+    negative: '#D9534F',
+
     gray100: '#F5F5F5',
     gray200: '#E5E5E5',
     gray300: '#D4D4D4',

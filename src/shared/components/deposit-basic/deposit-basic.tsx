@@ -1,41 +1,38 @@
 import { useNavigate } from 'react-router-dom';
-import * as styles from './savings.css';
+import * as styles from './deposit-basic.css';
 
-interface SavingsProps {
+interface DepositBasicProps {
   productId: number;
   optionId: number;
   bankName: string;
   productName: string;
-  rsrvTypeNm: string;
   saveTerm: number;
   baseRate: number;
   maxRate: number;
 }
 
-const Savings = ({
+const DepositBasic = ({
   productId,
   optionId,
   bankName,
   productName,
-  rsrvTypeNm,
   saveTerm,
   baseRate,
   maxRate,
-}: SavingsProps) => {
+}: DepositBasicProps) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className={styles.savingsContainer}
-      onClick={() => navigate(`/savings/${productId}/${optionId}`)}
+      className={styles.depositContainer}
+      onClick={() => {
+        navigate(`/deposit/${productId}/${optionId}`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
     >
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>{productName}</div>
       <div className={styles.detail}>
-        <div className={styles.detailContainer}>
-          <div className={styles.title}>유형</div>
-          <div className={styles.value}>{rsrvTypeNm}</div>
-        </div>
         <div className={styles.detailContainer}>
           <div className={styles.title}>기간</div>
           <div className={styles.value}>{saveTerm}개월</div>
@@ -53,4 +50,4 @@ const Savings = ({
   );
 };
 
-export default Savings;
+export default DepositBasic;
