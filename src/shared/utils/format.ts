@@ -13,7 +13,7 @@ export const formatDiffMoney = (num: number | null | undefined) => {
   if (num === null || num === undefined) return '-';
   const formatted = formatNumber(num);
   if (formatted === '-') return '-';
-  return num > 0 ? `+${formatted}원` : `${formatted}원`;
+  return num >= 0 ? `+${formatted}원` : `${formatted}원`;
 };
 
 export const getDiffText = (num: number, suffix = '') => {
