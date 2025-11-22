@@ -62,7 +62,7 @@ const DepositDetailPage = () => {
     return (
       <>
         <Header />
-        <Spinner />
+        <Spinner color='pink' />
       </>
     );
   }

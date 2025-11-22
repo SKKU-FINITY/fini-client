@@ -64,7 +64,7 @@ const SavingsDetailPage = () => {
     return (
       <>
         <Header />
-        <Spinner />
+        <Spinner color='blue' />
       </>
     );
   }
