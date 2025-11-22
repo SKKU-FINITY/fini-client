@@ -1,4 +1,5 @@
 import { style, keyframes } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../../styles/theme.css';
 
 const spin = keyframes({
@@ -14,11 +15,23 @@ export const wrapper = style({
   justifyContent: 'center',
 });
 
-export const loader = style({
-  width: '4rem',
-  height: '4rem',
-  border: `4px solid ${vars.color.gray300}`,
-  borderTopColor: vars.color.pink300,
-  borderRadius: '50%',
-  animation: `${spin} 0.7s linear infinite`,
+export const loader = recipe({
+  base: {
+    width: '4rem',
+    height: '4rem',
+    border: `4px solid ${vars.color.gray300}`,
+    borderRadius: '50%',
+    animation: `${spin} 0.7s linear infinite`,
+  },
+
+  variants: {
+    color: {
+      pink: { borderTopColor: vars.color.pink300 },
+      blue: { borderTopColor: vars.color.blue300 },
+    },
+  },
+
+  defaultVariants: {
+    color: 'pink',
+  },
 });
