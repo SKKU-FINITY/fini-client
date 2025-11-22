@@ -51,7 +51,12 @@ const DepositDetailPage = () => {
   }, [productId, optionId]);
 
   if (!detail) {
-    return <div className={styles.notFound}>찾으시는 상품이 존재하지 않습니다.</div>;
+    return (
+      <>
+        <Header />
+        <div className={styles.notFound}>찾으시는 상품이 존재하지 않습니다.</div>
+      </>
+    );
   }
 
   return (
