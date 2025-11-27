@@ -1,5 +1,5 @@
 import { vars } from '../../styles/theme.css';
-import { style, globalStyle } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 export const Main = style({
   display: 'block',
@@ -12,7 +12,7 @@ export const Main = style({
   paddingBottom: '4rem',
 });
 
-export const MainButtonWrapper= style({
+export const MainButtonWrapper = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -81,12 +81,4 @@ export const emptyText = style({
   color: 'var.color.gray500',
   backgroundColor: 'var.color.gray100',
   borderRadius: '8px',
-});
-
-
-globalStyle('html, body', {
-  margin: '0',
-  padding: '0',
-  width: '100%',
-  overflowX: 'hidden',
 });
