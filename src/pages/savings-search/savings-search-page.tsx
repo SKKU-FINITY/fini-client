@@ -5,7 +5,7 @@ import { BusanGyeongnamBankLogo, DaeguImBankLogo, HanaBankLogo, IBKLogo, Jeonbuk
 import Header from '../../shared/components/header/header';
 import SavingBasic from '../../shared/components/savings-basic/savings-basic';
 import DropDown from '../../shared/components/dropdown/dropdown';
-import * as styles from './saving-search-page.css';
+import * as styles from './savings-search-page.css';
 
 type ProductList = {
     productId: number;
