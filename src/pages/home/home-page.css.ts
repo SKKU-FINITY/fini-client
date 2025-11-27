@@ -5,31 +5,30 @@ export const Main = style({
   display: 'block',
   minHeight: '100vh',
   width: '100vw',
-  maxWidth: '750px',
+  maxWidth: '70rem',
   marginLeft: 'auto',
   marginRight: 'auto',
-  paddingTop: '75px',
-  paddingBottom: '50px',
+  paddingTop: '11rem',
+  paddingBottom: '4rem',
 });
 
 export const MainButtonWrapper= style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '30px',
-  marginTop: '50px',
+  gap: '2rem',
   width: '100%',
-  maxWidth: '750px',
+  maxWidth: '70rem',
 });
 
 export const MainButton = style({
   padding: '1rem 2rem ',
-  maxWidth: '300px !important',
+  maxWidth: '30rem',
   flexShrink: 0,
-  width: '45% !important',
-  height: '350px',
-  fontSize: '3rem !important',
-  fontWeight: `${vars.weight.bold} !important`,
+  width: '45%',
+  height: '35rem',
+  fontSize: '3rem',
+  fontWeight: vars.weight.bold,
   flexDirection: 'column',
   display: 'flex',
   justifyContent: 'center',
@@ -40,15 +39,15 @@ export const popularity_Container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
-  marginTop: '50px',
+  marginTop: '5rem',
   width: '100%',
-  maxWidth: '750px',
+  maxWidth: '70rem',
 });
 
 export const popularity_Title = style({
   fontSize: vars.size.xl,
   color: vars.color.gray900,
-  marginBottom: '5rem',
+  marginBottom: '3rem',
 });
 
 export const contentWrapper = style({
