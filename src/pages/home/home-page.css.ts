@@ -25,7 +25,7 @@ export const MainButton = style({
   flexShrink: 0,
   width: '45%',
   height: '35rem',
-  fontSize: '3rem',
+  fontSize: vars.size.xl,
   fontWeight: vars.weight.bold,
   flexDirection: 'column',
   display: 'flex',
@@ -64,7 +64,7 @@ export const section = style({
 export const sectionTitle = style({
   fontSize: vars.size.lg,
   marginBottom: '0.5rem',
-  color: 'var.color.black',
+  color: vars.color.black,
 });
 
 export const listContainer = style({
@@ -76,7 +76,7 @@ export const listContainer = style({
 export const emptyText = style({
   textAlign: 'center',
   padding: '2rem',
-  color: 'var.color.gray500',
-  backgroundColor: 'var.color.gray100',
+  color: vars.color.gray500,
+  backgroundColor: vars.color.gray100,
   borderRadius: '8px',
 });
