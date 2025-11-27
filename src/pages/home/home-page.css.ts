@@ -6,10 +6,8 @@ export const Main = style({
   minHeight: '100vh',
   width: '100vw',
   maxWidth: '70rem',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  paddingTop: '11rem',
-  paddingBottom: '4rem',
+  margin: 'auto',
+  padding: '11rem 0 4rem 0',
 });
 
 export const MainButtonWrapper = style({
