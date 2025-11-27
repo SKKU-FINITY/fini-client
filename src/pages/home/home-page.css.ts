@@ -1,84 +1,6 @@
 import { vars } from '../../styles/theme.css';
 import { style, globalStyle } from '@vanilla-extract/css';
 
-export const title = style({
-  color: vars.color.blue200,
-  fontSize: vars.size.xl,
-  fontWeight: vars.weight.bold,
-});
-
-export const header = style({
-  padding: '10px 20px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '100%',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  backgroundColor: vars.color.white,
-  borderBottom: `1px solid ${vars.color.blue200}`,
-  height: '65px',
-});
-
-export const logoContainer = style({
-  maxWidth: '650px',
-  width: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-});
-
-export const logo = style({
-  fontSize: vars.size.lg,
-  fontWeight: vars.weight.extrabold,
-  color: vars.color.blue200,
-  display: 'block',
-  top: '10px',
-  left: '20px',
-});
-
-
-export const menuButton = style({
-  background: 'none',
-  border: 'none',
-  cursor: 'pointer',
-  fontSize: vars.size.lg,
-  fontWeight: vars.weight.extrabold,
-  color: vars.color.blue200,
-  padding: '10px',
-  margin: '0',
-  verticalAlign: 'top',
-  top: '10px',
-  right: '20px',
-});
-
-export const menuItem = style({
-  padding: '10px 15px',
-  borderBottom: `1px solid ${vars.color.blue100}`,
-  textDecoration: 'none',
-  color: vars.color.blue300,
-  display: 'block',
-});
-
-export const dropdownMenu = style({
-  position: 'absolute',
-  top: '100%',
-  right: 0,
-  
-  backgroundColor: vars.color.white,
-  border: `1px solid ${vars.color.blue100}`,
-  minWidth: '150px',
-  listStyle: 'none',
-  padding: '0',
-  margin: '0',
-});
-
 export const Main = style({
   display: 'block',
   minHeight: '100vh',
@@ -87,6 +9,7 @@ export const Main = style({
   marginLeft: 'auto',
   marginRight: 'auto',
   paddingTop: '75px',
+  paddingBottom: '50px',
 });
 
 export const MainButtonWrapper= style({
@@ -104,10 +27,63 @@ export const MainButton = style({
   maxWidth: '300px !important',
   flexShrink: 0,
   width: '45% !important',
-  height: '500px',
+  height: '350px',
   fontSize: '3rem !important',
   fontWeight: `${vars.weight.bold} !important`,
+  flexDirection: 'column',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
+
+export const popularity_Container = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  marginTop: '50px',
+  width: '100%',
+  maxWidth: '750px',
+});
+
+export const popularity_Title = style({
+  fontSize: vars.size.xl,
+  color: vars.color.gray900,
+  marginBottom: '5rem',
+});
+
+export const contentWrapper = style({
+  display: 'flex',
+  gap: '1rem',
+  flexDirection: 'column',
+});
+
+export const section = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  marginBottom: '5rem',
+});
+
+export const sectionTitle = style({
+  fontSize: vars.size.lg,
+  marginBottom: '0.5rem',
+  color: 'var.color.black',
+});
+
+export const listContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2rem',
+});
+
+export const emptyText = style({
+  textAlign: 'center',
+  padding: '2rem',
+  color: 'var.color.gray500',
+  backgroundColor: 'var.color.gray100',
+  borderRadius: '8px',
+});
+
 
 globalStyle('html, body', {
   margin: '0',
