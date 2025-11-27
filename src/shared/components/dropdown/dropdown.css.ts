@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 
 export const dropdownWrapper = style({
   position: 'relative',
-  width: '50rem',
+  width: '100%',
 });
 
 export const dropdownContainer = recipe({
