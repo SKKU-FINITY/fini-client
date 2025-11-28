@@ -15,17 +15,17 @@ export const mainButtonWrapper = style({
   alignItems: 'center',
   gap: '2rem',
   width: '100%',
-  maxWidth: '70rem',
 });
 
 export const mainButton = style({
   width: '34rem',
   flexShrink: 0,
-  height: '35rem',
+  height: '40rem',
   fontSize: vars.size.xl,
   fontWeight: vars.weight.bold,
-  flexDirection: 'column',
   display: 'flex',
+  flexDirection: 'column',
+  gap: '0.5rem',
   justifyContent: 'center',
   alignItems: 'center',
 });
@@ -36,13 +36,13 @@ export const popularityContainer = style({
   gap: '1rem',
   marginTop: '5rem',
   width: '100%',
-  maxWidth: '70rem',
 });
 
 export const popularityTitle = style({
   fontSize: vars.size.xl,
-  color: vars.color.gray900,
-  marginBottom: '3rem',
+  fontWeight: vars.weight.medium,
+  color: vars.color.gray800,
+  marginBottom: '1rem',
 });
 
 export const contentWrapper = style({
@@ -60,8 +60,9 @@ export const section = style({
 
 export const sectionTitle = style({
   fontSize: vars.size.lg,
+  fontWeight: vars.weight.medium,
   marginBottom: '0.5rem',
-  color: vars.color.black,
+  color: vars.color.gray800,
 });
 
 export const listContainer = style({

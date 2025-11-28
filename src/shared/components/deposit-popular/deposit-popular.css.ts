@@ -18,12 +18,12 @@ export const bankContainer = style({
   justifyContent: 'flex-start',
   alignItems: 'center',
   height: '2rem',
-})
+});
 
 export const bank = style({
   fontSize: vars.size.xs,
   fontWeight: vars.weight.medium,
-  color: vars.color.black,
+  color: vars.color.gray700,
   width: '15rem',
 });
 
@@ -32,13 +32,13 @@ export const productContainer = style({
   justifyContent: 'flex-start',
   alignItems: 'center',
   height: '5rem',
-})
+});
 
 export const product = style({
   fontSize: vars.size.lg,
   fontWeight: vars.weight.bold,
-  color: vars.color.black,
-  margin:0
+  color: vars.color.gray700,
+  margin: 0,
 });
 
 export const detail = style({
@@ -51,5 +51,5 @@ export const detail = style({
 export const value = style({
   fontSize: vars.size.sm,
   fontWeight: vars.weight.regular,
-  color: vars.color.black,
+  color: vars.color.gray700,
 });

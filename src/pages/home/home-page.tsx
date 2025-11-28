@@ -34,70 +34,68 @@ const HomePage = () => {
   const [Loading, setIsLoading] = useState(true);
 
   useEffect(() => {
-      setIsLoading(true);
-      Promise.all([
-          getPopularDeposits(),
-          getPopularSavings()
-      ])
+    setIsLoading(true);
+    Promise.all([getPopularDeposits(), getPopularSavings()])
       .then(([depositRes, savingsRes]) => {
         setDeposits(depositRes?.result || []);
         setSavings(savingsRes?.result || []);
       })
-      .catch (() => {
+      .catch(() => {
         setDeposits([]);
         setSavings([]);
       })
-      .finally (() => {
+      .finally(() => {
         setIsLoading(false);
       });
   }, []);
 
   if (Loading) {
-    return(
-    <>
-    <Header/>
-    <main className={styles.main}>
-      <div className={styles.mainButtonWrapper}>
-        <button
-          className={`${button({variant:'pink'})} ${styles.mainButton}`}
-          onClick={() => {
-            navigate('/deposit/search');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >예금</button>
-        <button
-          className={`${button({variant:'blue'})} ${styles.mainButton}`}
-          onClick={() => {
-            navigate('/savings/search');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >적금</button>
-      </div>
-    </main>
-    </>
+    return (
+      <>
+        <Header />
+        <main className={styles.main}>
+          <div className={styles.mainButtonWrapper}>
+            <button
+              className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
+              onClick={() => {
+                navigate('/deposit/search');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              예금
+            </button>
+            <button
+              className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
+              onClick={() => {
+                navigate('/savings/search');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              적금
+            </button>
+          </div>
+        </main>
+      </>
     );
-  };
- 
+  }
+
   return (
     <>
-    <Header/>
-    <main className={styles.main}>
-      <div className={styles.mainButtonWrapper}>
-        <button className={`${button({variant:'pink'})} ${styles.mainButton}`}>
-          <FontAwesomeIcon icon = {faPiggyBank}/>
-          예금
-        </button>
-        <button className={`${button({variant:'blue'})} ${styles.mainButton}`}>
-          <FontAwesomeIcon icon = {faPiggyBank}/>
-          적금
-        </button>
-      </div>
-      <div className={styles.popularityContainer}>
-        <div className={styles.popularityTitle}>
-          이런 상품은 어떠신가요?
+      <Header />
+      <main className={styles.main}>
+        <div className={styles.mainButtonWrapper}>
+          <button className={`${button({ variant: 'pink' })} ${styles.mainButton}`}>
+            <FontAwesomeIcon icon={faPiggyBank} />
+            예금
+          </button>
+          <button className={`${button({ variant: 'blue' })} ${styles.mainButton}`}>
+            <FontAwesomeIcon icon={faPiggyBank} />
+            적금
+          </button>
         </div>
-        <div className={styles.contentWrapper}>
-            
+        <div className={styles.popularityContainer}>
+          <div className={styles.popularityTitle}>이런 상품은 어떠신가요?</div>
+          <div className={styles.contentWrapper}>
             {/* === 1. 예금 섹션 === */}
             <section className={styles.section}>
               <h2 className={styles.sectionTitle}>예금</h2>
@@ -105,12 +103,12 @@ const HomePage = () => {
                 {deposits.length > 0 ? (
                   deposits.map((item) => (
                     <DepositPopular
-                      key = {item.productId}
-                      productId = {item.productId}
-                      optionId = {item.options[0]?.optionId || 0}
-                      bankName = {item.bankName}
-                      productName = {item.productName}
-                      aiSummary = {item.aiSummary}
+                      key={item.productId}
+                      productId={item.productId}
+                      optionId={item.options[0]?.optionId || 0}
+                      bankName={item.bankName}
+                      productName={item.productName}
+                      aiSummary={item.aiSummary}
                     />
                   ))
                 ) : (
@@ -126,12 +124,12 @@ const HomePage = () => {
                 {savings.length > 0 ? (
                   savings.map((item) => (
                     <SavingsPopular
-                      key = {item.productId}
-                      productId = {item.productId}
-                      optionId = {item.options[0]?.optionId || 0}
-                      bankName = {item.bankName}
-                      productName = {item.productName}
-                      aiSummary = {item.aiSummary}
+                      key={item.productId}
+                      productId={item.productId}
+                      optionId={item.options[0]?.optionId || 0}
+                      bankName={item.bankName}
+                      productName={item.productName}
+                      aiSummary={item.aiSummary}
                     />
                   ))
                 ) : (
@@ -139,10 +137,11 @@ const HomePage = () => {
                 )}
               </div>
             </section>
+          </div>
         </div>
-      </div>
-    </main>
-  </>
-)};
+      </main>
+    </>
+  );
+};
 
 export default HomePage;

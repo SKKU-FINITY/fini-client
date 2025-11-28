@@ -19,7 +19,8 @@ const DepositPopular = ({
   const navigate = useNavigate();
 
   return (
-    <div className={styles.depositContainer}
+    <div
+      className={styles.depositContainer}
       onClick={() => {
         navigate(`/deposit/${productId}/${optionId}`);
         window.scrollTo({ top: 0, behavior: 'smooth' });
