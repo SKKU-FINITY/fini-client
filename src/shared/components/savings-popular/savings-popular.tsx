@@ -26,13 +26,15 @@ const SavingsPopular = ({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
     >
-        <div className={styles.headerContainer}>
-            <div className={styles.bank}>{bankName}</div>
-            <div className={styles.product}>{productName}</div>
-        </div>
-        <div className={styles.detail}>
-            <div className={styles.value}>{aiSummary}</div>
-        </div>
+      <div className={styles.bankContainer}>
+        <div className={styles.bank}>{bankName}</div>
+      </div>
+      <div className={styles.productContainer}>
+        <div className={styles.product}>{productName}</div>
+      </div>
+      <div className={styles.detail}>
+          <div className={styles.value}>{aiSummary}</div>
+      </div>
     </div>
   );
 };

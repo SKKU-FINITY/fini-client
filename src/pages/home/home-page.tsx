@@ -60,11 +60,17 @@ const HomePage = () => {
       <div className={styles.mainButtonWrapper}>
         <button
           className={`${button({variant:'pink'})} ${styles.mainButton}`}
-          onClick={() => navigate('/deposit/search')}
+          onClick={() => {
+            navigate('/deposit/search');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         >예금</button>
         <button
           className={`${button({variant:'blue'})} ${styles.mainButton}`}
-          onClick={() => navigate('/savings/search')}
+          onClick={() => {
+            navigate('/savings/search');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         >적금</button>
       </div>
     </main>

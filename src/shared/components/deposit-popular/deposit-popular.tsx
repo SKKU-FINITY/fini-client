@@ -25,13 +25,11 @@ const DepositPopular = ({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
     >
-        <div className={styles.headerContainer}>
-            <div className={styles.bank}>{bankName}</div>
-            <div className={styles.product}>{productName}</div>
-        </div>
-        <div className={styles.detail}>
-            <div className={styles.value}>{aiSummary}</div>
-        </div>
+      <div className={styles.bank}>{bankName}</div>
+      <div className={styles.product}>{productName}</div>
+      <div className={styles.detail}>
+        <div className={styles.value}>{aiSummary}</div>
+      </div>
     </div>
   );
 };

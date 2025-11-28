@@ -5,7 +5,7 @@ export const depositContainer = style({
   display: 'flex',
   flexDirection: 'column',
   width: '70rem',
-  height: '15rem',
+  height: '17rem',
   gap: '1rem',
   padding: '2rem 3rem',
   border: `1px solid ${vars.color.pink300}`,
@@ -13,13 +13,12 @@ export const depositContainer = style({
   cursor: 'pointer',
 });
 
-export const headerContainer = style({
+export const bankContainer = style({
   display: 'flex',
-  flexDirection: 'row',
-  gap: '10rem',
-  paddingBottom: '1rem',
+  justifyContent: 'flex-start',
   alignItems: 'center',
-});
+  height: '2rem',
+})
 
 export const bank = style({
   fontSize: vars.size.xs,
@@ -27,6 +26,13 @@ export const bank = style({
   color: vars.color.black,
   width: '15rem',
 });
+
+export const productContainer = style({
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  height: '5rem',
+})
 
 export const product = style({
   fontSize: vars.size.lg,
@@ -36,11 +42,10 @@ export const product = style({
 });
 
 export const detail = style({
+  height: '10rem',
   display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  padding: '0 5rem',
-  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'center',
 });
 
 export const value = style({
