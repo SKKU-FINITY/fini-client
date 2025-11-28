@@ -3,6 +3,7 @@ import { getPopularSavings, getPopularDeposits } from '../../shared/api/populari
 import { button } from '../../shared/components/button/button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../shared/components/header/header';
 import DepositPopular from '../../shared/components/deposit-popular/deposit-popular';
 import SavingsPopular from '../../shared/components/savings-popular/savings-popular';
@@ -27,6 +28,7 @@ type PopularityProducts = {
 };
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [deposits, setDeposits] = useState<PopularityProducts[]>([]);
   const [savings, setSavings] = useState<PopularityProducts[]>([]);
   const [Loading, setIsLoading] = useState(true);
@@ -38,12 +40,10 @@ const HomePage = () => {
           getPopularSavings()
       ])
       .then(([depositRes, savingsRes]) => {
-        console.log("data:",depositRes);
         setDeposits(depositRes?.result || []);
         setSavings(savingsRes?.result || []);
       })
-      .catch ((error) => {
-        console.error(error);
+      .catch (() => {
         setDeposits([]);
         setSavings([]);
       })
@@ -56,10 +56,16 @@ const HomePage = () => {
     return(
     <>
     <Header/>
-    <main className={styles.Main}>
-      <div className={styles.MainButtonWrapper}>
-        <button className={`${button({variant:'pink'})} ${styles.MainButton}`}>예금</button>
-        <button className={`${button({variant:'blue'})} ${styles.MainButton}`}>적금</button>
+    <main className={styles.main}>
+      <div className={styles.mainButtonWrapper}>
+        <button
+          className={`${button({variant:'pink'})} ${styles.mainButton}`}
+          onClick={() => navigate('/deposit/search')}
+        >예금</button>
+        <button
+          className={`${button({variant:'blue'})} ${styles.mainButton}`}
+          onClick={() => navigate('/savings/search')}
+        >적금</button>
       </div>
     </main>
     </>
@@ -69,19 +75,19 @@ const HomePage = () => {
   return (
     <>
     <Header/>
-    <main className={styles.Main}>
-      <div className={styles.MainButtonWrapper}>
-        <button className={`${button({variant:'pink'})} ${styles.MainButton}`}>
+    <main className={styles.main}>
+      <div className={styles.mainButtonWrapper}>
+        <button className={`${button({variant:'pink'})} ${styles.mainButton}`}>
           <FontAwesomeIcon icon = {faPiggyBank}/>
           예금
         </button>
-        <button className={`${button({variant:'blue'})} ${styles.MainButton}`}>
+        <button className={`${button({variant:'blue'})} ${styles.mainButton}`}>
           <FontAwesomeIcon icon = {faPiggyBank}/>
           적금
         </button>
       </div>
-      <div className={styles.popularity_Container}>
-        <div className={styles.popularity_Title}>
+      <div className={styles.popularityContainer}>
+        <div className={styles.popularityTitle}>
           이런 상품은 어떠신가요?
         </div>
         <div className={styles.contentWrapper}>

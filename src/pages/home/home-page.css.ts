@@ -1,7 +1,7 @@
 import { vars } from '../../styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
-export const Main = style({
+export const main = style({
   display: 'block',
   minHeight: '100vh',
   width: '100vw',
@@ -10,7 +10,7 @@ export const Main = style({
   padding: '11rem 0 4rem 0',
 });
 
-export const MainButtonWrapper = style({
+export const mainButtonWrapper = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -19,7 +19,7 @@ export const MainButtonWrapper = style({
   maxWidth: '70rem',
 });
 
-export const MainButton = style({
+export const mainButton = style({
   padding: '1rem 2rem ',
   maxWidth: '30rem',
   flexShrink: 0,
@@ -33,7 +33,7 @@ export const MainButton = style({
   alignItems: 'center',
 });
 
-export const popularity_Container = style({
+export const popularityContainer = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
@@ -42,7 +42,7 @@ export const popularity_Container = style({
   maxWidth: '70rem',
 });
 
-export const popularity_Title = style({
+export const popularityTitle = style({
   fontSize: vars.size.xl,
   color: vars.color.gray900,
   marginBottom: '3rem',

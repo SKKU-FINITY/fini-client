@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import * as styles from './savings-popular.css';
 
-interface DepositPopularProps {
+interface SavingsPopularProps {
   productId: number;
   optionId: number;
   bankName: string;
@@ -9,13 +9,13 @@ interface DepositPopularProps {
   aiSummary: string;
 }
 
-const DepositPopular = ({
+const SavingsPopular = ({
   productId,
   optionId,
   bankName,
   productName,
   aiSummary,
-}: DepositPopularProps) => {
+}: SavingsPopularProps) => {
   const navigate = useNavigate();
 
   return (
@@ -37,4 +37,4 @@ const DepositPopular = ({
   );
 };
 
-export default DepositPopular;
+export default SavingsPopular;
