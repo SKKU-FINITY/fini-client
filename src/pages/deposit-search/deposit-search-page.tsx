@@ -52,7 +52,6 @@ const DepositSearchPage = () => {
             data = data.sort((a:ProductList, b:ProductList) => b.maxRate-a.maxRate);
             setDepositList(data);
         } catch (error) {
-            console.error(error);
         } finally {
             setIsLoading(false);
         }
@@ -93,7 +92,7 @@ const DepositSearchPage = () => {
         return(
         <>
         <Header/>
-        <main className={styles.MainContainer}>
+        <main className={styles.mainContainer}>
             {/*은행 선택*/}
             <section className={styles.section}>
                 <h2 className={styles.sectionTitle}>은행</h2>
@@ -142,7 +141,7 @@ const DepositSearchPage = () => {
     return (
         <>
         <Header/>
-        <main className={styles.MainContainer}>
+        <main className={styles.mainContainer}>
             {/*은행 선택*/}
             <section className={styles.section}>
                 <h2 className={styles.sectionTitle}>은행</h2>
