@@ -21,7 +21,7 @@ export const bankContainer = style({
 });
 
 export const bank = style({
-  fontSize: vars.size.xs,
+  fontSize: vars.size.ms,
   fontWeight: vars.weight.medium,
   color: vars.color.gray700,
   width: '15rem',
