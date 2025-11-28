@@ -7,7 +7,7 @@ import SavingsDetailPage from '../../pages/savings-detail/savings-detail-page';
 import DepositDetailPage from '../../pages/deposit-detail/deposit-detail-page';
 import ErrorPage from '../../pages/error/error-page';
 import ProtectedRoute from './protected-route';
-import SavingsSearchPage from '../../pages/saving-search/saving-search-page';
+import SavingsSearchPage from '../../pages/savings-search/savings-search-page';
 import DepositSearchPage from '../../pages/deposit-search/deposit-search-page';
 
 
