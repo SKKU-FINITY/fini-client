@@ -52,6 +52,7 @@ const DepositSearchPage = () => {
             data = data.sort((a:ProductList, b:ProductList) => b.maxRate-a.maxRate);
             setDepositList(data);
         } catch (error) {
+            setDepositList([]);
         } finally {
             setIsLoading(false);
         }
@@ -76,10 +77,11 @@ const DepositSearchPage = () => {
         setSaveTerm(term);
     }
     const handleSearch = () => {
+        if (loading) return;
         if (selectedBanks.length === 0) {
             setSelectedBanks(BANK_LIST.map(b=>b.id));
         }
-        fetchDepositList(selectedBanks.length > 0 ? selectedBanks : null, saveTerm);
+        fetchDepositList(selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map(b=>b.id), saveTerm);
     };
     const handleSelectAll = () => {
         if (selectedBanks.length === BANK_LIST.length) {

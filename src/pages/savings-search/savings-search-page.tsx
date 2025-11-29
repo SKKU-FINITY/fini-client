@@ -53,6 +53,7 @@ const SavingSearchPage = () => {
             data = data.sort((a:ProductList, b:ProductList) => b.maxRate-a.maxRate);
             setSavingList(data);
         } catch (error) {
+            setSavingList([]);
         } finally {
             setIsLoading(false);
         }
@@ -77,10 +78,11 @@ const SavingSearchPage = () => {
         setSaveTerm(term);
     }
     const handleSearch = () => {
+        if (loading) return;
         if (selectedBanks.length === 0) {
             setSelectedBanks(BANK_LIST.map(b=>b.id));
         }
-        fetchSavingList(selectedBanks.length > 0 ? selectedBanks : null, saveTerm);
+        fetchSavingList(selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map(b=>b.id), saveTerm);
     };
     const handleSelectAll = () => {
         if (selectedBanks.length === BANK_LIST.length) {
