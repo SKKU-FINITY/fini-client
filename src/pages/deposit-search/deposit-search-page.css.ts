@@ -1,7 +1,7 @@
 import { vars } from '../../styles/theme.css';
 import { style, globalStyle } from '@vanilla-extract/css';
 
-export const MainContainer = style({
+export const mainContainer = style({
     display: 'block',
     width: '70rem',
     minHeight: '100vh',
