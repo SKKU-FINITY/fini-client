@@ -38,18 +38,21 @@ const BANK_LIST = [
     { id: '한국산업은행', name: '한국산업은행(KDB)', logo: <KDBLogo /> },
 ];
 
+const DEFAULT_TERM = 36;
+
 const DepositSearchPage = () => {
     const [depositList, setDepositList] = useState<ProductList[]>([]);
     const [loading, setIsLoading] = useState(true);
     const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
-    const [saveTerm, setSaveTerm] = useState<number>(36);  
+    const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);  
     
     const fetchDepositList = async (banks: string[] | null, term: number) => {
         setIsLoading(true);
         try {
             const res = await getDepositsList(banks || undefined, term);
-            let data = res?.result || [];
-            data = data.sort((a:ProductList, b:ProductList) => b.maxRate-a.maxRate);
+            const data: ProductList[] = [...(res?.result ?? [])].sort(
+                (a, b) => b.maxRate - a.maxRate,
+            );
             setDepositList(data);
         } catch (error) {
             setDepositList([]);
@@ -61,7 +64,7 @@ const DepositSearchPage = () => {
     useEffect(() => {
         setIsLoading(true);
         setSelectedBanks(BANK_LIST.map(b=>b.id));
-        fetchDepositList(null, 36);
+        fetchDepositList(null, DEFAULT_TERM);
     }, []);
 
     const handleBankToggle = (bankId: string) => {
@@ -78,10 +81,13 @@ const DepositSearchPage = () => {
     }
     const handleSearch = () => {
         if (loading) return;
+
+        const targetBanks = selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map((b) => b.id);
+
         if (selectedBanks.length === 0) {
-            setSelectedBanks(BANK_LIST.map(b=>b.id));
+            setSelectedBanks(targetBanks);
         }
-        fetchDepositList(selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map(b=>b.id), saveTerm);
+        fetchDepositList(targetBanks, saveTerm);
     };
     const handleSelectAll = () => {
         if (selectedBanks.length === BANK_LIST.length) {
@@ -90,6 +96,7 @@ const DepositSearchPage = () => {
             setSelectedBanks(BANK_LIST.map(b=>b.id));
         }
     };
+    
     if (loading) {
         return(
         <>
@@ -189,7 +196,7 @@ const DepositSearchPage = () => {
                 {depositList.length > 0 ? (
                     depositList.map(item => (
                         <DepositBasic
-                            key={item.productId}
+                            key={`${item.productId}-${item.optionId}`}
                             productId={item.productId}
                             optionId={item.optionId}
                             bankName={item.bankName}
