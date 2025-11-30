@@ -60,9 +60,9 @@ const DepositSearchPage = () => {
     };
 
     useEffect(() => {
-        setIsLoading(true);
-        setSelectedBanks(BANK_LIST.map(b=>b.id));
-        fetchDepositList(null, DEFAULT_TERM);
+        const allBankIds = BANK_LIST.map((b)=>b.id);
+        setSelectedBanks(allBankIds);
+        fetchDepositList(allBankIds, DEFAULT_TERM);
     }, []);
 
     const handleBankToggle = (bankId: string) => {
@@ -138,6 +138,7 @@ const DepositSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'pink'})}`}
                 onClick={handleSearch}
+                disabled={loading}
                 >검색</button>
             </div>
         </main>
@@ -187,6 +188,7 @@ const DepositSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'pink'})}`}
                 onClick={handleSearch}
+                disabled={loading}
                 >검색</button>
             </div>
             {/*상품 리스트*/}

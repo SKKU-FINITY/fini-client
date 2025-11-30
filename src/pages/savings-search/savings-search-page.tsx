@@ -61,9 +61,9 @@ const SavingSearchPage = () => {
     };
 
     useEffect(() => {
-        setIsLoading(true);
-        setSelectedBanks(BANK_LIST.map(b=>b.id));
-        fetchSavingList(null, DEFAULT_TERM);
+        const allBankIds = BANK_LIST.map((b)=>b.id);
+        setSelectedBanks(allBankIds);
+        fetchSavingList(allBankIds, DEFAULT_TERM);
     }, []);
 
     const handleBankToggle = (bankId: string) => {
@@ -138,6 +138,7 @@ const SavingSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'blue'})}`}
                 onClick={handleSearch}
+                disabled={loading}
                 >검색</button>
             </div>
         </main>
@@ -187,6 +188,7 @@ const SavingSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'blue'})}`}
                 onClick={handleSearch}
+                disabled={loading}
                 >검색</button>
             </div>
             {/*상품 리스트*/}
