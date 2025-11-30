@@ -54,8 +54,6 @@ const DepositSearchPage = () => {
                 (a, b) => b.maxRate - a.maxRate,
             );
             setDepositList(data);
-        } catch (error) {
-            setDepositList([]);
         } finally {
             setIsLoading(false);
         }
