@@ -15,12 +15,13 @@ export const mainContainer = style({
 export const section = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '0.2rem',
   marginBottom: '3rem',
 });
 
 export const sectionTitle = style({
-  fontSize: vars.size.md,
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.semibold,
   color: vars.color.black,
   marginBottom: '1rem',
 });
@@ -29,7 +30,7 @@ export const bankContainer = style({
   display: 'flex',
   flexDirection: 'column',
   width: '70rem',
-  gap: '1rem',
+  gap: '1.5rem',
   borderRadius: '10px',
 });
 
@@ -66,6 +67,7 @@ export const bankLogo = style({
 
 export const bankName = style({
   fontSize: vars.size.xxs,
+  fontWeight: vars.weight.medium,
   color: vars.color.gray800,
 });
 
@@ -87,9 +89,10 @@ export const selectAllButton = style({
   borderRadius: '5px',
   cursor: 'pointer',
   backgroundColor: vars.color.blue300,
-  fontSize: vars.size.md,
-  fontWeight: vars.weight.bold,
-  padding: '0.5rem 1rem',
+  fontSize: vars.size.sm,
+  fontWeight: vars.weight.semibold,
+  padding: '0.6rem 1rem',
+  border: 'none',
 });
 
 export const termContainer = style({
@@ -110,9 +113,9 @@ export const searchContainer = style({
 export const searchButton = style({
   backgroundColor: vars.color.blue300,
   color: vars.color.white,
-  fontSize: vars.size.md,
-  fontWeight: vars.weight.bold,
-  padding: '0.5rem 1rem',
+  fontSize: vars.size.sm,
+  fontWeight: vars.weight.semibold,
+  padding: '0.6rem 1rem',
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',
