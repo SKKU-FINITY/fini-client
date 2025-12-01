@@ -46,7 +46,7 @@ const SavingSearchPage = () => {
     const [loading, setIsLoading] = useState(true);
     const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
     const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);  
-    const [IsError, setIsError] = useState(false);
+    const [isError, setIsError] = useState(false);
     
     const fetchSavingList = async (banks: string[] | null, term: number) => {
         setIsLoading(true);
@@ -145,7 +145,7 @@ const SavingSearchPage = () => {
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            {!loading && !IsError && (
+            {!loading && !isError && (
                 <div className={styles.savingListContainer}>
                     {savingList.length > 0 ? (
                         savingList.map(item => (
@@ -165,6 +165,11 @@ const SavingSearchPage = () => {
                         <p>검색된 적금 상품이 없습니다.</p>
                     )}
                 </div>
+            )}
+            {!loading && isError && (
+                <p>
+                    적금 상품을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.
+                </p>
             )}
         </main>
         </>
