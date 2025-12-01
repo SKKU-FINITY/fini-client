@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getSavingsList } from '../../shared/api/products';
+import { useSavingsSearchStore } from '../../shared/stores/useSavingsSearchStore';
 import { button } from '../../shared/components/button/button.css';
 import { BANK_LIST } from '../../shared/constants/bank-list';
 import Header from '../../shared/components/header/header';
@@ -8,43 +9,33 @@ import DropDown from '../../shared/components/dropdown/dropdown';
 import Spinner from '../../shared/components/spinner/spinner';
 import * as styles from './savings-search-page.css';
 
-type ProductList = {
-  productId: number;
-  optionId: number;
-  bankName: string;
-  productName: string;
-  rsrvTypeNm: string;
-  saveTerm: number;
-  baseRate: number;
-  maxRate: number;
-};
-
-const DEFAULT_TERM = 36;
-
-const SavingSearchPage = () => {
-  const [savingList, setSavingList] = useState<ProductList[]>([]);
+const SavingsSearchPage = () => {
+  const {
+    selectedBanks,
+    saveTerm,
+    savingsList,
+    initialized,
+    setSelectedBanks,
+    setSaveTerm,
+    setSavingsList,
+    setInitialized,
+  } = useSavingsSearchStore();
   const [loading, setIsLoading] = useState(true);
-  const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
-  const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);
   const [isError, setIsError] = useState(false);
 
-  const fetchSavingList = async (banks: string[] | null, term: number) => {
+  const fetchSavingsList = async (banks: string[], term: number) => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const res = await getSavingsList(banks || undefined, term);
-      const data: ProductList[] = [...res.result].sort((a, b) => {
-        if (a.saveTerm !== b.saveTerm) {
-          return b.saveTerm - a.saveTerm;
-        }
-        if (a.maxRate !== b.maxRate) {
-          return b.maxRate - a.maxRate;
-        }
+      const res = await getSavingsList(banks, term);
+      const data = [...res.result].sort((a, b) => {
+        if (a.saveTerm !== b.saveTerm) return b.saveTerm - a.saveTerm;
+        if (a.maxRate !== b.maxRate) return b.maxRate - a.maxRate;
         return b.baseRate - a.baseRate;
       });
-      setSavingList(data);
+      setSavingsList(data);
     } catch (error) {
-      setSavingList([]);
+      setSavingsList([]);
       setIsError(true);
     } finally {
       setIsLoading(false);
@@ -52,9 +43,14 @@ const SavingSearchPage = () => {
   };
 
   useEffect(() => {
-    const allBankIds = BANK_LIST.map((b) => b.id);
-    setSelectedBanks(allBankIds);
-    fetchSavingList(allBankIds, DEFAULT_TERM);
+    if (!initialized) {
+      const allBankIds = BANK_LIST.map((b) => b.id);
+      setSelectedBanks(allBankIds);
+      fetchSavingsList(allBankIds, saveTerm);
+      setInitialized(true);
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
   const handleBankToggle = (bankId: string) => {
@@ -69,16 +65,16 @@ const SavingSearchPage = () => {
   const handleTermChange = (term: number) => {
     setSaveTerm(term);
   };
+
   const handleSearch = () => {
     if (loading) return;
-
     const targetBanks = selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map((b) => b.id);
-
     if (selectedBanks.length === 0) {
       setSelectedBanks(targetBanks);
     }
-    fetchSavingList(targetBanks, saveTerm);
+    fetchSavingsList(targetBanks, saveTerm);
   };
+
   const handleSelectAll = () => {
     if (selectedBanks.length === BANK_LIST.length) {
       setSelectedBanks([]);
@@ -146,8 +142,8 @@ const SavingSearchPage = () => {
           </div>
         ) : !isError ? (
           <div className={styles.savingListContainer}>
-            {savingList.length > 0 ? (
-              savingList.map((item) => (
+            {savingsList.length > 0 ? (
+              savingsList.map((item) => (
                 <SavingBasic
                   key={`${item.productId}-${item.optionId}`}
                   productId={item.productId}
@@ -172,4 +168,4 @@ const SavingSearchPage = () => {
   );
 };
 
-export default SavingSearchPage;
+export default SavingsSearchPage;

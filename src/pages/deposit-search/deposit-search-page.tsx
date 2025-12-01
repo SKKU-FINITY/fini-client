@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDepositsList } from '../../shared/api/products';
+import { useDepositSearchStore } from '../../shared/stores/useDepositSearchStore';
 import { button } from '../../shared/components/button/button.css';
 import { BANK_LIST } from '../../shared/constants/bank-list';
 import Header from '../../shared/components/header/header';
@@ -8,39 +9,31 @@ import DropDown from '../../shared/components/dropdown/dropdown';
 import Spinner from '../../shared/components/spinner/spinner';
 import * as styles from './deposit-search-page.css';
 
-type ProductList = {
-  productId: number;
-  optionId: number;
-  bankName: string;
-  productName: string;
-  saveTerm: number;
-  baseRate: number;
-  maxRate: number;
-};
-
-const DEFAULT_TERM = 36;
-
 const DepositSearchPage = () => {
-  const [depositList, setDepositList] = useState<ProductList[]>([]);
+  const {
+    selectedBanks,
+    saveTerm,
+    depositList,
+    initialized,
+    setSelectedBanks,
+    setSaveTerm,
+    setDepositList,
+    setInitialized,
+  } = useDepositSearchStore();
   const [loading, setIsLoading] = useState(true);
-  const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
-  const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);
   const [isError, setIsError] = useState(false);
 
-  const fetchDepositList = async (banks: string[] | null, term: number) => {
+  const fetchDepositList = async (banks: string[], term: number) => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const res = await getDepositsList(banks || undefined, term);
-      const data: ProductList[] = [...res.result].sort((a, b) => {
-        if (a.saveTerm !== b.saveTerm) {
-          return b.saveTerm - a.saveTerm;
-        }
-        if (a.maxRate !== b.maxRate) {
-          return b.maxRate - a.maxRate;
-        }
+      const res = await getDepositsList(banks, term);
+      const data = [...(res?.result ?? [])].sort((a, b) => {
+        if (a.saveTerm !== b.saveTerm) return b.saveTerm - a.saveTerm;
+        if (a.maxRate !== b.maxRate) return b.maxRate - a.maxRate;
         return b.baseRate - a.baseRate;
       });
+
       setDepositList(data);
     } catch (error) {
       setDepositList([]);
@@ -51,9 +44,14 @@ const DepositSearchPage = () => {
   };
 
   useEffect(() => {
-    const allBankIds = BANK_LIST.map((b) => b.id);
-    setSelectedBanks(allBankIds);
-    fetchDepositList(allBankIds, DEFAULT_TERM);
+    if (!initialized) {
+      const allBankIds = BANK_LIST.map((b) => b.id);
+      setSelectedBanks(allBankIds);
+      fetchDepositList(allBankIds, saveTerm);
+      setInitialized(true);
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
   const handleBankToggle = (bankId: string) => {
@@ -65,19 +63,20 @@ const DepositSearchPage = () => {
       }
     });
   };
+
   const handleTermChange = (term: number) => {
     setSaveTerm(term);
   };
+
   const handleSearch = () => {
     if (loading) return;
-
     const targetBanks = selectedBanks.length > 0 ? selectedBanks : BANK_LIST.map((b) => b.id);
-
     if (selectedBanks.length === 0) {
       setSelectedBanks(targetBanks);
     }
     fetchDepositList(targetBanks, saveTerm);
   };
+
   const handleSelectAll = () => {
     if (selectedBanks.length === BANK_LIST.length) {
       setSelectedBanks([]);
