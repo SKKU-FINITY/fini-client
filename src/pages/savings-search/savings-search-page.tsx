@@ -56,10 +56,9 @@ const SavingSearchPage = () => {
                 (a, b) => b.maxRate - a.maxRate,
             );
             setSavingList(data);
-            setIsError(false);
+            setIsError(true);
         } finally {
             setIsLoading(false);
-            setIsError(true);
         }
     };
 
@@ -141,7 +140,7 @@ const SavingSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'blue'})}`}
                 onClick={handleSearch}
-                
+                disabled={loading}
                 >검색</button>
             </div>
             {/*상품 리스트*/}
