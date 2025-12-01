@@ -46,6 +46,7 @@ const SavingSearchPage = () => {
     const [loading, setIsLoading] = useState(true);
     const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
     const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);  
+    const [IsError, setIsError] = useState(false);
     
     const fetchSavingList = async (banks: string[] | null, term: number) => {
         setIsLoading(true);
@@ -55,8 +56,10 @@ const SavingSearchPage = () => {
                 (a, b) => b.maxRate - a.maxRate,
             );
             setSavingList(data);
+            setIsError(false);
         } finally {
             setIsLoading(false);
+            setIsError(true);
         }
     };
 
@@ -142,7 +145,7 @@ const SavingSearchPage = () => {
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            {!loading && (
+            {!loading && !IsError && (
                 <div className={styles.savingListContainer}>
                     {savingList.length > 0 ? (
                         savingList.map(item => (

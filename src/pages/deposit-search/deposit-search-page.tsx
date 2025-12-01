@@ -44,7 +44,8 @@ const DepositSearchPage = () => {
     const [depositList, setDepositList] = useState<ProductList[]>([]);
     const [loading, setIsLoading] = useState(true);
     const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
-    const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM);  
+    const [saveTerm, setSaveTerm] = useState<number>(DEFAULT_TERM); 
+    const [IsError, setIsError] = useState(false);
     
     const fetchDepositList = async (banks: string[] | null, term: number) => {
         setIsLoading(true);
@@ -54,6 +55,10 @@ const DepositSearchPage = () => {
                 (a, b) => b.maxRate - a.maxRate,
             );
             setDepositList(data);
+            setIsError(false);
+        } catch (error) {
+            setDepositList([]);
+            setIsError(true);
         } finally {
             setIsLoading(false);
         }
@@ -141,7 +146,7 @@ const DepositSearchPage = () => {
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            {!loading && (
+            {!loading && !IsError && (
                 <div className={styles.depositListContainer}>
                     {depositList.length > 0 ? (
                         depositList.map(item => (
