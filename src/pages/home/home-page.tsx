@@ -62,6 +62,7 @@ const HomePage = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
+              <FontAwesomeIcon icon={faPiggyBank} />
               예금
             </button>
             <button
@@ -71,6 +72,7 @@ const HomePage = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
+              <FontAwesomeIcon icon={faPiggyBank} />
               적금
             </button>
           </div>
@@ -84,14 +86,26 @@ const HomePage = () => {
       <Header />
       <main className={styles.main}>
         <div className={styles.mainButtonWrapper}>
-          <button className={`${button({ variant: 'pink' })} ${styles.mainButton}`}>
-            <FontAwesomeIcon icon={faPiggyBank} />
-            예금
-          </button>
-          <button className={`${button({ variant: 'blue' })} ${styles.mainButton}`}>
-            <FontAwesomeIcon icon={faPiggyBank} />
-            적금
-          </button>
+          <button
+              className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
+              onClick={() => {
+                navigate('/deposit/search');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <FontAwesomeIcon icon={faPiggyBank} />
+              예금
+            </button>
+            <button
+              className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
+              onClick={() => {
+                navigate('/savings/search');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <FontAwesomeIcon icon={faPiggyBank} />
+              적금
+            </button>
         </div>
         <div className={styles.popularityContainer}>
           <div className={styles.popularityTitle}>이런 상품은 어떠신가요?</div>
