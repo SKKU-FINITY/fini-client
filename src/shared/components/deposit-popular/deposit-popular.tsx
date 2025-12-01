@@ -29,7 +29,7 @@ const DepositPopular = ({
       <div className={styles.bank}>{bankName}</div>
       <div className={styles.product}>{productName}</div>
       <div className={styles.detail}>
-        <div className={styles.value}>💡{aiSummary}</div>
+        <div className={styles.value}>💡 {aiSummary}</div>
       </div>
     </div>
   );
