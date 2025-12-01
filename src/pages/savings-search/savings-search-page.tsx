@@ -28,7 +28,7 @@ const SavingsSearchPage = () => {
     setIsError(false);
     try {
       const res = await getSavingsList(banks, term);
-      const data = [...res.result].sort((a, b) => {
+      const data = [...(res?.result ?? [])].sort((a, b) => {
         if (a.saveTerm !== b.saveTerm) return b.saveTerm - a.saveTerm;
         if (a.maxRate !== b.maxRate) return b.maxRate - a.maxRate;
         return b.baseRate - a.baseRate;
