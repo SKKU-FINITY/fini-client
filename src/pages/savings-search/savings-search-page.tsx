@@ -32,7 +32,15 @@ const SavingSearchPage = () => {
     setIsError(false);
     try {
       const res = await getSavingsList(banks || undefined, term);
-      const data: ProductList[] = [...(res?.result ?? [])].sort((a, b) => b.maxRate - a.maxRate);
+      const data: ProductList[] = [...res.result].sort((a, b) => {
+        if (a.saveTerm !== b.saveTerm) {
+          return b.saveTerm - a.saveTerm;
+        }
+        if (a.maxRate !== b.maxRate) {
+          return b.maxRate - a.maxRate;
+        }
+        return b.baseRate - a.baseRate;
+      });
       setSavingList(data);
     } catch (error) {
       setSavingList([]);
