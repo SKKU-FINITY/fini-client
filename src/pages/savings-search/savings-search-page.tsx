@@ -56,6 +56,8 @@ const SavingSearchPage = () => {
                 (a, b) => b.maxRate - a.maxRate,
             );
             setSavingList(data);
+        } catch (error) {
+            setSavingList([]);
             setIsError(true);
         } finally {
             setIsLoading(false);
