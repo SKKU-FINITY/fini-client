@@ -10,16 +10,14 @@ const DEFAULT_PLACEHOLDER = '저축 희망 기간을 선택해주세요.';
 
 interface DropDownProps {
   color?: 'pink' | 'blue';
-  value?: number | null;          // 부모가 내려주는 현재 값 (이전의 selected)
-  onChange?: (value: number) => void; // 부모에게 알리는 함수
+  value?: number | null;
+  onChange?: (value: number) => void;
 }
 
 const DropDown = ({ color = 'pink', value, onChange }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  //const [selected, setSelected] = useState<number | null>(null);
 
   const handleOptionClick = (option: number) => {
-    //setSelected(option);
     if (onChange) {
       onChange(option);
     }
@@ -32,7 +30,9 @@ const DropDown = ({ color = 'pink', value, onChange }: DropDownProps) => {
         className={styles.dropdownContainer({ color, open: isOpen })}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <div className={styles.dropdownPlaceholder}>{value ? `${value}개월` : DEFAULT_PLACEHOLDER || DEFAULT_PLACEHOLDER}</div>
+        <div className={styles.dropdownPlaceholder}>
+          {value ? `${value}개월` : DEFAULT_PLACEHOLDER || DEFAULT_PLACEHOLDER}
+        </div>
         <FontAwesomeIcon
           icon={isOpen ? faAngleUp : faAngleDown}
           className={styles.icon}
