@@ -188,31 +188,34 @@ const SavingSearchPage = () => {
                 <button
                 className={`${styles.searchButton} ${button({variant:'blue'})}`}
                 onClick={handleSearch}
-                disabled={loading}
+                
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            <div className={styles.savingListContainer}>
-                {savingList.length > 0 ? (
-                    savingList.map(item => (
-                        <SavingBasic
-                            key={`${item.productId}-${item.optionId}`}
-                            productId={item.productId}
-                            optionId={item.optionId}
-                            bankName={item.bankName}
-                            productName={item.productName}
-                            rsrvTypeNm={item.rsrvTypeNm}
-                            saveTerm={item.saveTerm}
-                            baseRate={item.baseRate}
-                            maxRate={item.maxRate}
-                        />
-                    ))
-                ) : (
-                    <p>검색된 적금 상품이 없습니다.</p>
-                )}
-            </div>
+            {!loading && (
+                <div className={styles.savingListContainer}>
+                    {savingList.length > 0 ? (
+                        savingList.map(item => (
+                            <SavingBasic
+                                key={`${item.productId}-${item.optionId}`}
+                                productId={item.productId}
+                                optionId={item.optionId}
+                                bankName={item.bankName}
+                                productName={item.productName}
+                                rsrvTypeNm={item.rsrvTypeNm}
+                                saveTerm={item.saveTerm}
+                                baseRate={item.baseRate}
+                                maxRate={item.maxRate}
+                            />
+                        ))
+                    ) : (
+                        <p>검색된 적금 상품이 없습니다.</p>
+                    )}
+                </div>
+            )}
         </main>
         </>
-    )};
+    );
+};
 
 export default SavingSearchPage;

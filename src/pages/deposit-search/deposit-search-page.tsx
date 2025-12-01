@@ -192,26 +192,29 @@ const DepositSearchPage = () => {
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            <div className={styles.depositListContainer}>
-                {depositList.length > 0 ? (
-                    depositList.map(item => (
-                        <DepositBasic
-                            key={`${item.productId}-${item.optionId}`}
-                            productId={item.productId}
-                            optionId={item.optionId}
-                            bankName={item.bankName}
-                            productName={item.productName}
-                            saveTerm={item.saveTerm}
-                            baseRate={item.baseRate}
-                            maxRate={item.maxRate}
-                        />
-                    ))
-                ) : (
-                    <p>검색된 예금 상품이 없습니다.</p>
-                )}
-            </div>
+            {!loading && (
+                <div className={styles.depositListContainer}>
+                    {depositList.length > 0 ? (
+                        depositList.map(item => (
+                            <DepositBasic
+                                key={`${item.productId}-${item.optionId}`}
+                                productId={item.productId}
+                                optionId={item.optionId}
+                                bankName={item.bankName}
+                                productName={item.productName}
+                                saveTerm={item.saveTerm}
+                                baseRate={item.baseRate}
+                                maxRate={item.maxRate}
+                            />
+                        ))
+                    ) : (
+                        <p>검색된 예금 상품이 없습니다.</p>
+                    )}
+                </div>
+            )}
         </main>
         </>
-    )};
+    );
+};
 
 export default DepositSearchPage;
