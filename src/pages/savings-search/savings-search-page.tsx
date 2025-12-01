@@ -5,6 +5,7 @@ import { BANK_LIST } from '../../shared/constants/bank-list';
 import Header from '../../shared/components/header/header';
 import SavingBasic from '../../shared/components/savings-basic/savings-basic';
 import DropDown from '../../shared/components/dropdown/dropdown';
+import Spinner from '../../shared/components/spinner/spinner';
 import * as styles from './savings-search-page.css';
 
 type ProductList = {
@@ -141,7 +142,7 @@ const SavingSearchPage = () => {
         {/*상품 리스트*/}
         {loading ? (
           <div className={styles.savingListContainer}>
-            <p>상품을 불러오는 중입니다</p>
+            <Spinner color='blue' />
           </div>
         ) : !isError ? (
           <div className={styles.savingListContainer}>

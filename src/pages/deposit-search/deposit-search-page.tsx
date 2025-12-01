@@ -5,6 +5,7 @@ import { BANK_LIST } from '../../shared/constants/bank-list';
 import Header from '../../shared/components/header/header';
 import DepositBasic from '../../shared/components/deposit-basic/deposit-basic';
 import DropDown from '../../shared/components/dropdown/dropdown';
+import Spinner from '../../shared/components/spinner/spinner';
 import * as styles from './deposit-search-page.css';
 
 type ProductList = {
@@ -140,7 +141,7 @@ const DepositSearchPage = () => {
         {/*상품 리스트*/}
         {loading ? (
           <div className={styles.depositListContainer}>
-            <p>상품을 불러오는 중입니다</p>
+            <Spinner color='pink' />
           </div>
         ) : !isError ? (
           <div className={styles.depositListContainer}>
