@@ -95,56 +95,6 @@ const SavingSearchPage = () => {
             setSelectedBanks(BANK_LIST.map(b=>b.id));
         }
     };
-    if (loading) {
-        return(
-        <>
-        <Header/>
-        <main className={styles.mainContainer}>
-            {/*은행 선택*/}
-            <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>은행</h2>
-                <div className={styles.bankContainer}>
-                    <div className={styles.bankGrid}>
-                        {BANK_LIST.map((bank) => {
-                            const isSelected = selectedBanks.includes(bank.id);
-                            return (
-                                <button key={bank.id} className={`${styles.bankButton} ${isSelected ? styles.bankButtonSelected : ''}`}
-                                onClick={() => handleBankToggle(bank.id)}>
-                                <div className={styles.bankLogo}>{bank.logo}</div>
-                                <span>{bank.name}</span>
-                            </button>
-                            );
-                        })}
-                    </div>
-                    <div className={styles.selectAllContainer}>
-                        <button
-                        className={`${styles.selectAllButton} ${button({variant:'blue'})}`}
-                        onClick={()=> handleSelectAll()}
-                        >
-                            전체선택
-                        </button>
-                    </div>
-                </div>
-            </section>
-            {/*기간 선택*/}
-            <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>기간</h2>
-                <div className={styles.termContainer}>
-                    <DropDown color='blue' value={saveTerm} onChange={handleTermChange}/>
-                </div>
-            </section>
-            {/*검색 버튼*/}
-            <div className={styles.searchContainer}>
-                <button
-                className={`${styles.searchButton} ${button({variant:'blue'})}`}
-                onClick={handleSearch}
-                disabled={loading}
-                >검색</button>
-            </div>
-        </main>
-        </>
-            );
-    };
 
     return (
         <>
