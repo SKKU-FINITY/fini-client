@@ -48,7 +48,7 @@ export const detailContainer = style({
   flexDirection: 'column',
   gap: '0.4rem',
   alignItems: 'center',
-  width: '10rem',
+  width: '13rem',
 });
 
 export const title = style({
