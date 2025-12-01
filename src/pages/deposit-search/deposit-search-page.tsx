@@ -49,13 +49,13 @@ const DepositSearchPage = () => {
     
     const fetchDepositList = async (banks: string[] | null, term: number) => {
         setIsLoading(true);
+        setIsError(false);
         try {
             const res = await getDepositsList(banks || undefined, term);
             const data: ProductList[] = [...(res?.result ?? [])].sort(
                 (a, b) => b.maxRate - a.maxRate,
             );
             setDepositList(data);
-            setIsError(false);
         } catch (error) {
             setDepositList([]);
             setIsError(true);
@@ -146,7 +146,11 @@ const DepositSearchPage = () => {
                 >검색</button>
             </div>
             {/*상품 리스트*/}
-            {!loading && !isError && (
+            {loading ? (
+                <div className={styles.depositListContainer}>
+                    <p>상품을 불러오는 중입니다</p>
+                </div>
+            ) : !isError ? (
                 <div className={styles.depositListContainer}>
                     {depositList.length > 0 ? (
                         depositList.map(item => (
@@ -165,8 +169,7 @@ const DepositSearchPage = () => {
                         <p>검색된 예금 상품이 없습니다.</p>
                     )}
                 </div>
-            )}
-            {!loading && isError && (
+            ) : (
                 <p>
                     예금 상품을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.
                 </p>
