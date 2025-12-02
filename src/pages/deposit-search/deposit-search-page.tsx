@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { getDepositsList } from '../../shared/api/products';
-import { useDepositSearchStore } from '../../shared/stores/useDepositSearchStore';
-import { button } from '../../shared/components/button/button.css';
-import { BANK_LIST } from '../../shared/constants/bank-list';
-import Header from '../../shared/components/header/header';
-import DepositBasic from '../../shared/components/deposit-basic/deposit-basic';
-import DropDown from '../../shared/components/dropdown/dropdown';
-import Spinner from '../../shared/components/spinner/spinner';
+import { getDepositsList } from '@shared/api/products';
+import { useDepositSearchStore } from '@shared/stores/useDepositSearchStore';
+import { button } from '@shared/components/button/button.css';
+import { BANK_LIST } from '@shared/constants/bank-list';
+import Header from '@shared/components/header/header';
+import DepositBasic from '@shared/components/deposit-basic/deposit-basic';
+import DropDown from '@shared/components/dropdown/dropdown';
+import Spinner from '@shared/components/spinner/spinner';
 import * as styles from './deposit-search-page.css';
 
 const DepositSearchPage = () => {

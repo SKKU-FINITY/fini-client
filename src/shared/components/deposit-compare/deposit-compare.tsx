@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { getDiffText, getDiffClassName, formatDiffMoney } from '@shared/utils/format';
 import * as styles from './deposit-compare.css';
-import { getDiffText, getDiffClassName, formatDiffMoney } from '../../utils/format';
 
 interface DepositCompareProps {
   productId: number;

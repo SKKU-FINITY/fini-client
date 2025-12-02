@@ -1,6 +1,6 @@
-import * as styles from './header.css';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../api/auth';
+import { logout } from '@shared/api/auth';
+import * as styles from './header.css';
 
 const Header = () => {
   const navigate = useNavigate();

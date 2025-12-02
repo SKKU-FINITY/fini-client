@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getDepositsDetail } from '../../shared/api/products';
-import { formatLimit } from '../../shared/utils/format';
+import { getDepositsDetail } from '@shared/api/products';
+import { formatLimit } from '@shared/utils/format';
+import Header from '@shared/components/header/header';
+import DepositCompare from '@shared/components/deposit-compare/deposit-compare';
+import Spinner from '@shared/components/spinner/spinner';
 import * as styles from './deposit-detail-page.css';
-import Header from '../../shared/components/header/header';
-import DepositCompare from '../../shared/components/deposit-compare/deposit-compare';
-import Spinner from '../../shared/components/spinner/spinner';
 
 type SimilarProducts = {
   productId: number;

@@ -1,6 +1,6 @@
 import { style, keyframes } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { vars } from '../../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 
 const spin = keyframes({
   '0%': { transform: 'rotate(0deg)' },

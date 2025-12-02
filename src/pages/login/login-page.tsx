@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import * as styles from './login-page.css';
 import { AxiosError } from 'axios';
-import { login } from '../../shared/api/auth';
-import Title from '../../shared/components/title/title';
-import Input from '../../shared/components/input/input';
-import Button from '../../shared/components/button/button';
+import { login } from '@shared/api/auth';
+import Title from '@shared/components/title/title';
+import Input from '@shared/components/input/input';
+import Button from '@shared/components/button/button';
+import * as styles from './login-page.css';
 
 const Login = () => {
   const navigate = useNavigate();

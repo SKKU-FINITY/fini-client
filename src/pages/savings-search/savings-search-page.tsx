@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { getSavingsList } from '../../shared/api/products';
-import { useSavingsSearchStore } from '../../shared/stores/useSavingsSearchStore';
-import { button } from '../../shared/components/button/button.css';
-import { BANK_LIST } from '../../shared/constants/bank-list';
-import Header from '../../shared/components/header/header';
-import SavingBasic from '../../shared/components/savings-basic/savings-basic';
-import DropDown from '../../shared/components/dropdown/dropdown';
-import Spinner from '../../shared/components/spinner/spinner';
+import { getSavingsList } from '@shared/api/products';
+import { useSavingsSearchStore } from '@shared/stores/useSavingsSearchStore';
+import { button } from '@shared/components/button/button.css';
+import { BANK_LIST } from '@shared/constants/bank-list';
+import Header from '@shared/components/header/header';
+import SavingBasic from '@shared/components/savings-basic/savings-basic';
+import DropDown from '@shared/components/dropdown/dropdown';
+import Spinner from '@shared/components/spinner/spinner';
 import * as styles from './savings-search-page.css';
 
 const SavingsSearchPage = () => {
