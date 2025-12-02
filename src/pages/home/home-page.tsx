@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PATH } from '@shared/router/path';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons';
 import { getPopularSavings, getPopularDeposits } from '@shared/api/popularity';
@@ -58,7 +59,7 @@ const HomePage = () => {
             <button
               className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
               onClick={() => {
-                navigate('/deposit/search');
+                navigate(PATH.DEPOSIT_SEARCH);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
@@ -68,7 +69,7 @@ const HomePage = () => {
             <button
               className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
               onClick={() => {
-                navigate('/savings/search');
+                navigate(PATH.SAVINGS_SEARCH);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
