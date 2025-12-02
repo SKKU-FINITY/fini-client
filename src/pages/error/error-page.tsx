@@ -1,8 +1,8 @@
-import * as styles from './error-page.css';
 import { useNavigate } from 'react-router-dom';
-import { PATH } from '../../shared/router/path';
-import Button from '../../shared/components/button/button';
-import Header from '../../shared/components/header/header';
+import { PATH } from '@shared/router/path';
+import Button from '@shared/components/button/button';
+import Header from '@shared/components/header/header';
+import * as styles from './error-page.css';
 
 const ErrorPage = () => {
   const navigate = useNavigate();

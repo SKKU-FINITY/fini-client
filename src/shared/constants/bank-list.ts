@@ -14,7 +14,7 @@ import {
   SuhyupBankLogo,
   TossBankLogo,
   WooriBankLogo,
-} from '../assets/svg';
+} from '@shared/assets/svg';
 
 export type BankItem = {
   id: string;

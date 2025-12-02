@@ -1,4 +1,4 @@
-import { vars } from '../../styles/theme.css';
+import { vars } from '@styles/theme.css';
 import { style, globalStyle } from '@vanilla-extract/css';
 
 export const mainContainer = style({

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { getPopularSavings, getPopularDeposits } from '../../shared/api/popularity';
-import { button } from '../../shared/components/button/button.css';
+import { useNavigate } from 'react-router-dom';
+import { PATH } from '@shared/router/path';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import Header from '../../shared/components/header/header';
-import DepositPopular from '../../shared/components/deposit-popular/deposit-popular';
-import SavingsPopular from '../../shared/components/savings-popular/savings-popular';
+import { getPopularSavings, getPopularDeposits } from '@shared/api/popularity';
+import { button } from '@shared/components/button/button.css';
+import Header from '@shared/components/header/header';
+import DepositPopular from '@shared/components/deposit-popular/deposit-popular';
+import SavingsPopular from '@shared/components/savings-popular/savings-popular';
 import * as styles from './home-page.css';
 
 type ProductOptions = {
@@ -58,7 +59,7 @@ const HomePage = () => {
             <button
               className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
               onClick={() => {
-                navigate('/deposit/search');
+                navigate(PATH.DEPOSIT_SEARCH);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
@@ -68,7 +69,7 @@ const HomePage = () => {
             <button
               className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
               onClick={() => {
-                navigate('/savings/search');
+                navigate(PATH.SAVINGS_SEARCH);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
@@ -87,25 +88,25 @@ const HomePage = () => {
       <main className={styles.main}>
         <div className={styles.mainButtonWrapper}>
           <button
-              className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
-              onClick={() => {
-                navigate('/deposit/search');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              <FontAwesomeIcon icon={faPiggyBank} />
-              예금
-            </button>
-            <button
-              className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
-              onClick={() => {
-                navigate('/savings/search');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              <FontAwesomeIcon icon={faPiggyBank} />
-              적금
-            </button>
+            className={`${button({ variant: 'pink' })} ${styles.mainButton}`}
+            onClick={() => {
+              navigate('/deposit/search');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <FontAwesomeIcon icon={faPiggyBank} />
+            예금
+          </button>
+          <button
+            className={`${button({ variant: 'blue' })} ${styles.mainButton}`}
+            onClick={() => {
+              navigate('/savings/search');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <FontAwesomeIcon icon={faPiggyBank} />
+            적금
+          </button>
         </div>
         <div className={styles.popularityContainer}>
           <div className={styles.popularityTitle}>이런 상품은 어떠신가요?</div>

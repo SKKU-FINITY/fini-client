@@ -1,15 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { PATH } from './path';
-import HomePage from '../../pages/home/home-page';
-import LoginPage from '../../pages/login/login-page';
-import SignupPage from '../../pages/signup/signup-page';
-import SavingsDetailPage from '../../pages/savings-detail/savings-detail-page';
-import DepositDetailPage from '../../pages/deposit-detail/deposit-detail-page';
-import ErrorPage from '../../pages/error/error-page';
-import ProtectedRoute from './protected-route';
-import SavingsSearchPage from '../../pages/savings-search/savings-search-page';
-import DepositSearchPage from '../../pages/deposit-search/deposit-search-page';
-
+import ProtectedRoute from '@shared/router/protected-route';
+import HomePage from '@pages/home/home-page';
+import LoginPage from '@pages/login/login-page';
+import SignupPage from '@pages/signup/signup-page';
+import SavingsDetailPage from '@pages/savings-detail/savings-detail-page';
+import DepositDetailPage from '@pages/deposit-detail/deposit-detail-page';
+import ErrorPage from '@pages/error/error-page';
+import SavingsSearchPage from '@pages/savings-search/savings-search-page';
+import DepositSearchPage from '@pages/deposit-search/deposit-search-page';
 
 export const router = createBrowserRouter([
   { path: PATH.HOME, element: <ProtectedRoute element={<HomePage />} /> },

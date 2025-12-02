@@ -5,8 +5,8 @@ export const getSavingsList = async (bankNames?: string[], term?: number) => {
   const res = await api.get(PRODUCTS.SAVINGS_LIST, {
     params: {
       bankNames: bankNames?.length ? bankNames.join(',') : undefined,
-      term: term || undefined 
-    }
+      term: term || undefined,
+    },
   });
   return res.data;
 };
@@ -20,8 +20,8 @@ export const getDepositsList = async (bankNames?: string[], term?: number) => {
   const res = await api.get(PRODUCTS.DEPOSITS_LIST, {
     params: {
       bankNames: bankNames?.length ? bankNames.join(',') : undefined,
-      term: term || undefined 
-    }
+      term: term || undefined,
+    },
   });
   return res.data;
 };

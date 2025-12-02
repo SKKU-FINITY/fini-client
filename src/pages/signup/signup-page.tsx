@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AxiosError } from 'axios';
-import { signup } from '../../shared/api/auth';
-import Title from '../../shared/components/title/title';
-import Input from '../../shared/components/input/input';
-import Button from '../../shared/components/button/button';
+import { signup } from '@shared/api/auth';
+import { SignUpStep } from '@shared/constants/signup-step';
+import Title from '@shared/components/title/title';
+import Input from '@shared/components/input/input';
+import Button from '@shared/components/button/button';
 import * as styles from './signup-page.css';
-import { SignUpStep } from '../../shared/constants/signup-step';
 
 const SignupPage = () => {
   const navigate = useNavigate();

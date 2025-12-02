@@ -1,7 +1,8 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,5 +14,6 @@ export default defineConfig({
     }),
     react(),
     vanillaExtractPlugin(),
+    tsconfigPaths(),
   ],
 });
