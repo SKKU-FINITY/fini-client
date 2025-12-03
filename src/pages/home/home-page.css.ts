@@ -33,15 +33,21 @@ export const mainButton = style({
 export const popularityContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '0.5rem',
   marginTop: '5rem',
   width: '100%',
 });
 
 export const popularityTitle = style({
-  fontSize: vars.size.xl,
-  fontWeight: vars.weight.medium,
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.bold,
   color: vars.color.gray800,
+});
+
+export const popularityMent = style({
+  fontSize: vars.size.sm,
+  fontWeight: vars.weight.medium,
+  color: vars.color.gray600,
   marginBottom: '1rem',
 });
 
@@ -49,18 +55,19 @@ export const contentWrapper = style({
   display: 'flex',
   gap: '1rem',
   flexDirection: 'column',
+  paddingTop: '1rem',
 });
 
 export const section = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
-  marginBottom: '5rem',
+  marginBottom: '3rem',
 });
 
 export const sectionTitle = style({
-  fontSize: vars.size.lg,
-  fontWeight: vars.weight.medium,
+  fontSize: vars.size.md,
+  fontWeight: vars.weight.semibold,
   marginBottom: '0.5rem',
   color: vars.color.gray800,
 });
