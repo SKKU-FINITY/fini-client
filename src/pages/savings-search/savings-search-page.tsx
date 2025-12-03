@@ -121,7 +121,7 @@ const SavingsSearchPage = () => {
         {/*기간 선택*/}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>기간</h2>
-          <h2 className={styles.termMent}>선택한 기간보다 짧은 기간의 상품들이 보여져요.</h2>
+          <p className={styles.termMent}>선택한 기간보다 짧은 기간의 상품들이 보여져요.</p>
           <div className={styles.termContainer}>
             <DropDown color='blue' value={saveTerm} onChange={handleTermChange} />
           </div>
