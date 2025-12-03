@@ -15,7 +15,7 @@ export const mainContainer = style({
 export const section = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.2rem',
+  gap: '0.1rem',
   marginBottom: '3rem',
 });
 
@@ -23,7 +23,7 @@ export const sectionTitle = style({
   fontSize: vars.size.lg,
   fontWeight: vars.weight.semibold,
   color: vars.color.black,
-  marginBottom: '1rem'
+  marginBottom: '1rem',
 });
 
 export const bankContainer = style({
@@ -107,7 +107,7 @@ export const termMent = style({
   fontSize: vars.size.ms,
   color: vars.color.gray700,
   paddingBottom: '1rem',
-})
+});
 
 export const searchContainer = style({
   display: 'flex',
@@ -138,20 +138,19 @@ export const depositListContainer = style({
 export const depositHowSorted = style({
   fontSize: vars.size.ms,
   color: vars.color.gray700,
-  marginBottom: '1.5rem',
-})
+});
 
 export const depositHowmany = style({
   fontSize: vars.size.ms,
   color: vars.color.gray700,
   marginBottom: '1rem',
-})
+});
 
 export const howManyNumber = style({
   fontSize: vars.size.ms,
   color: vars.color.gray800,
-  fontWeight: vars.weight.bold
-})
+  fontWeight: vars.weight.bold,
+});
 
 globalStyle(`${bankLogo} svg`, {
   width: '100%',
@@ -159,6 +158,9 @@ globalStyle(`${bankLogo} svg`, {
 });
 
 export const notFound = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   fontSize: vars.size.lg,
   fontWeight: vars.weight.bold,
   color: vars.color.gray800,

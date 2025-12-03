@@ -138,37 +138,36 @@ const SavingsSearchPage = () => {
         </div>
         {/*상품 리스트*/}
         {loading ? (
-          <div className={styles.savingListContainer}>
+          <div className={styles.savingsListContainer}>
             <Spinner color='blue' />
           </div>
         ) : !isError ? (
-          <div className={styles.savingListContainer}>
+          <div className={styles.savingsListContainer}>
             {savingsList.length > 0 ? (
               <>
-              <div className={styles.savingHowSorted}>
-                상품은 기간, 최대 금리, 기본 금리에 대한 내림차순으로 정렬됩니다.
-              </div>
-              <div className={styles.savingHowmany}>
-                총 <span className={styles.howManyNumber}>{savingsList.length}</span>개의 상품이 검색되었습니다.
-              </div>
-              {savingsList.map((item) => (
-                <SavingBasic
-                  key={`${item.productId}-${item.optionId}`}
-                  productId={item.productId}
-                  optionId={item.optionId}
-                  bankName={item.bankName}
-                  productName={item.productName}
-                  rsrvTypeNm={item.rsrvTypeNm}
-                  saveTerm={item.saveTerm}
-                  baseRate={item.baseRate}
-                  maxRate={item.maxRate}
-                />
-              ))}
+                <div className={styles.savingsHowSorted}>
+                  ✔️ 상품은 기간, 최대 금리, 기본 금리에 대한 내림차순으로 정렬됩니다.
+                </div>
+                <div className={styles.savingsHowmany}>
+                  총 <span className={styles.howManyNumber}>{savingsList.length}</span>개의 상품이
+                  검색되었습니다.
+                </div>
+                {savingsList.map((item) => (
+                  <SavingBasic
+                    key={`${item.productId}-${item.optionId}`}
+                    productId={item.productId}
+                    optionId={item.optionId}
+                    bankName={item.bankName}
+                    productName={item.productName}
+                    rsrvTypeNm={item.rsrvTypeNm}
+                    saveTerm={item.saveTerm}
+                    baseRate={item.baseRate}
+                    maxRate={item.maxRate}
+                  />
+                ))}
               </>
             ) : (
-              <div className={styles.notFound}>
-                검색된 적금 상품이 없습니다.
-              </div>
+              <div className={styles.notFound}>검색된 적금 상품이 없습니다.</div>
             )}
           </div>
         ) : (
