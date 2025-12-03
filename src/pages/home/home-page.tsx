@@ -110,6 +110,7 @@ const HomePage = () => {
         </div>
         <div className={styles.popularityContainer}>
           <div className={styles.popularityTitle}>이런 상품은 어떠신가요?</div>
+          <div className={styles.popularityMent}>지금 인기 있는 상품들을 추천드려요.</div>
           <div className={styles.contentWrapper}>
             {/* === 1. 예금 섹션 === */}
             <section className={styles.section}>

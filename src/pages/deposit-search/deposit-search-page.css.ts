@@ -23,7 +23,7 @@ export const sectionTitle = style({
   fontSize: vars.size.lg,
   fontWeight: vars.weight.semibold,
   color: vars.color.black,
-  marginBottom: '1rem',
+  marginBottom: '1rem'
 });
 
 export const bankContainer = style({
@@ -103,6 +103,12 @@ export const termContainer = style({
   justifyContent: 'center',
 });
 
+export const termMent = style({
+  fontSize: vars.size.ms,
+  color: vars.color.gray700,
+  paddingBottom: '1rem',
+})
+
 export const searchContainer = style({
   display: 'flex',
   alignItems: 'center',
@@ -129,7 +135,31 @@ export const depositListContainer = style({
   marginTop: '2rem',
 });
 
+export const depositHowSorted = style({
+  fontSize: vars.size.ms,
+  color: vars.color.gray700,
+  marginBottom: '1.5rem',
+})
+
+export const depositHowmany = style({
+  fontSize: vars.size.ms,
+  color: vars.color.gray700,
+  marginBottom: '1rem',
+})
+
+export const howManyNumber = style({
+  fontSize: vars.size.ms,
+  color: vars.color.gray800,
+  fontWeight: vars.weight.bold
+})
+
 globalStyle(`${bankLogo} svg`, {
   width: '100%',
   height: '100%',
+});
+
+export const notFound = style({
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.bold,
+  color: vars.color.gray800,
 });

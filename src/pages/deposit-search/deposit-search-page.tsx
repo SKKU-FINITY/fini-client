@@ -123,6 +123,7 @@ const DepositSearchPage = () => {
         {/*기간 선택*/}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>기간</h2>
+          <h2 className={styles.termMent}>선택한 기간보다 짧은 기간의 상품들이 보여져요.</h2>
           <div className={styles.termContainer}>
             <DropDown color='pink' value={saveTerm} onChange={handleTermChange} />
           </div>
@@ -145,7 +146,14 @@ const DepositSearchPage = () => {
         ) : !isError ? (
           <div className={styles.depositListContainer}>
             {depositList.length > 0 ? (
-              depositList.map((item) => (
+              <>
+              <div className={styles.depositHowSorted}>
+                상품은 기간, 최대 금리, 기본 금리에 대한 내림차순으로 정렬됩니다.
+              </div>
+              <div className={styles.depositHowmany}>
+                총 <span className={styles.howManyNumber}>{depositList.length}</span>개의 상품이 검색되었습니다.
+              </div>
+              {depositList.map((item) => (
                 <DepositBasic
                   key={`${item.productId}-${item.optionId}`}
                   productId={item.productId}
@@ -156,13 +164,18 @@ const DepositSearchPage = () => {
                   baseRate={item.baseRate}
                   maxRate={item.maxRate}
                 />
-              ))
+              ))}
+              </>
             ) : (
-              <p>검색된 예금 상품이 없습니다.</p>
+              <div className={styles.notFound}>
+                검색된 예금 상품이 없습니다.
+              </div>
             )}
           </div>
         ) : (
-          <p>예금 상품을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.</p>
+          <div className={styles.notFound}>
+            예금 상품을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.
+          </div>
         )}
       </main>
     </>

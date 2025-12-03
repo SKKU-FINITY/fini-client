@@ -39,11 +39,17 @@ export const popularityContainer = style({
 });
 
 export const popularityTitle = style({
-  fontSize: vars.size.xl,
-  fontWeight: vars.weight.medium,
+  fontSize: vars.size.lg,
+  fontWeight: vars.weight.bold,
   color: vars.color.gray800,
-  marginBottom: '1rem',
 });
+
+export const popularityMent = style({
+  fontSize: vars.size.ms,
+  fontWeight: vars.weight.medium,
+  color: vars.color.gray600,
+  marginBottom: '1rem',
+})
 
 export const contentWrapper = style({
   display: 'flex',
@@ -55,12 +61,12 @@ export const section = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
-  marginBottom: '5rem',
+  marginBottom: '3rem',
 });
 
 export const sectionTitle = style({
-  fontSize: vars.size.lg,
-  fontWeight: vars.weight.medium,
+  fontSize: vars.size.md,
+  fontWeight: vars.weight.semibold,
   marginBottom: '0.5rem',
   color: vars.color.gray800,
 });
